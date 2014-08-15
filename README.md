@@ -1,4 +1,4 @@
-shrodingerKitty
+NumSolTUn
 ===============
 
-CODING SCHRÖDINGER EQUATION
+Numerical Solutions of The Universe
