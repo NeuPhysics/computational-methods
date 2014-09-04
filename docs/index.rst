@@ -15,4 +15,5 @@ Table of Contents
 .. toctree::
     :maxdepth: 3
 
+    intro.rst
     prelim.rst
