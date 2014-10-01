@@ -91,14 +91,14 @@ from Coursera course interactivepython-005/lecture/8.
 	   
 	# will return True if a year is a leap year on Mars
 	def is_leap_year(year):
-	    if (year % 2 == 0) and (year % 10 == 0):
-	        return True
-	    elif year % 3000 == 0:
+	    if year % 3000 == 0:
 	        return False
 	    elif year % 1000 == 0:
 	        return True
 	    elif year % 100 == 0:
 	        return False
+	    elif (year % 2 == 0) and (year % 10 == 0):
+	        return True
 	    else:
 	        return False
 
