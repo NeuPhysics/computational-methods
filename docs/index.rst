@@ -17,3 +17,4 @@ Table of Contents
 
     intro.rst
     prelim.rst
+    python.rst

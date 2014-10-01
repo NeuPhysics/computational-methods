@@ -13,12 +13,12 @@ Two types of numbers exisit,
 
 Arithmetic
 
-.. codeblock:: python
+.. highlight:: python
    print 1.0/3
 
 will give us float numbers, while
 
-.. codeblock:: python
+.. highlight:: python
    print 1/3
 
 will only give us int.
@@ -32,7 +32,7 @@ Variable name should start with either a letter or a underscore.
 
 Variables defined inside a function is local and there is no way to find it or use it outside the function. It is even possible to reuse an already used global variable inside a function.
 
-.. codeblock:: python
+.. highlight:: python
 	
 	# num1 is a global variable
 
@@ -52,7 +52,7 @@ where the first line will give us 1 but the second output is 3. (Code from Cours
 
 If we want to use the global variable and change the value of it, the program can be like this,
 
-.. codeblock:: python
+.. highlight:: python
 
 	num = 4
 
@@ -75,7 +75,7 @@ from Coursera course interactivepython-005/lecture/15.
 
 Start a function by a comment says what the function does.
 
-.. codeblock:: python
+.. highlight:: python
 
    def triangle_area(base, height):     # header - ends in colon
        area = (1.0 / 2) * base * height # body - all of body is indented
@@ -87,7 +87,7 @@ from Coursera course interactivepython-005/lecture/8.
 
 
 
-.. codeblock:: python
+.. highlight:: python
 	   
 	# will return True if a year is a leap year on Mars
 	def is_leap_year(year):
