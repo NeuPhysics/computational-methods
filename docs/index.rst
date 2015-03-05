@@ -18,3 +18,4 @@ Table of Contents
     intro.rst
     prelim.rst
     python.rst
+    ann.rst
