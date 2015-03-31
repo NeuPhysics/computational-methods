@@ -106,8 +106,11 @@ from Coursera course interactivepython-005/lecture/8.
 
 
 
+Zen Code
+--------------------
 
 
 
+1. https://www.python.org/doc/essays/list2str/
 
-
+2. Try `filter()`, `map()`, `reduce()`.
