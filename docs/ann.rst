@@ -68,6 +68,69 @@ Refs
 
 
 
+Activation Functions
+--------------------------------------------------
+
+
+1. Uni-Polar Sigmoid Function
+
+.. math::
+   \frac{1}{1+e^{-x}}
+
+.. figure:: assets/sigmoidFunction.png
+   :align: center
+
+   Sigmoid function
+
+
+2. Bipolar Sigmoid Function
+
+.. math::
+   \frac{1-e^{-x}}{1+e^{-x}}
+
+.. figure:: assets/bipolarSigmoid.png
+   :align: center
+
+   Bipolar Sigmoid
+
+
+
+3. Hyperbolic Tangent
+
+.. math::
+   \tanh(x) = \frac{\sinh(x)}{\cosh(x)} = \frac{e^{x} - e^{-x}}{e^x + e^{-x}}
+
+
+.. figure:: assets/tanh.png
+   :align: center
+
+   Hyperbolic tangent
+
+
+4. Radial Basis Function
+
+.. figure:: assets/unnormalized_radial_basis_functions.svg.png
+   :align: center
+
+   Two unnormalized Gaussian radial basis functions in one input dimension. The basis function centers are located at x1=0.75 and x2=3.25. Source `Unnormalized Radial Basis Functions <https://en.wikipedia.org/wiki/Radial_basis_function#/media/File:Unnormalized_radial_basis_functions.svg>`_
+
+
+5. Conic Section Function
+
+
+
+
+
+Reffs
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. `Performance Analysis of Various Activation Functions in Generalized MLP Architectures of Neural Networks  <http://www.cscjournals.org/manuscript/Journals/IJAE/volume1/Issue4/IJAE-26.pdf>`_
+
+
+
+
+
+
 
 Solving Differential Equations
 -------------------------------------------------------------
@@ -125,6 +188,10 @@ Now the task becomes clear:
 1. Write down the cost analytically;
 2. Minimized cost to find structure;
 3. Substitute back to the function and we are done.
+
+
+
+
 
 
 
