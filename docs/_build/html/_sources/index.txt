@@ -19,5 +19,6 @@ Here is an index: `genindex.html <genindex.html>`_ .
     intro.rst
     preliminary/index.rst
     python/index.rst
+    numerical-methods/index.rst
     neutrino-oscillations/index.rst
     artificial-neural-network/index.rst
