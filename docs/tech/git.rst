@@ -151,9 +151,27 @@ Then I find this folder named :code:`codebase.git` under this path :code:`/home/
 
 Whatever follows is to cd to this folder and start working on local machine then add, commit, and push.
 
+.. admonition:: Push Existing Repos
+   :class: notes
+
+   What if I already have a repo locally and need to push it to this new server? Use :code:`git remote add `. Here is an example.
+
+   .. code:: bash
+
+      git remote add newgitserver ssh://neutrino@physicists.edu/home/neutrino/gitserver/codebase.git
+
+   Change newgitserver to whatever you like. After that :code:`git push newgitserver` will push the codes to the new server.
+
+   Alternatively, you can change .git/config and name this new one the origin.
+
+
+
 References:
 
 1. `Setting up a repository @ atlassian.com <https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config>`_
+
+
+
 
 
 Using GitLab
