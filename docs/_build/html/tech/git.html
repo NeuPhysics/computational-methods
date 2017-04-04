@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Git &mdash; Computational Neutrino Physics</title>
+    <title>Git &#8212; Computational Neutrino Physics</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -20,15 +20,16 @@
         VERSION:     'Pi',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Computational Neutrino Physics" href="../index.html" />
-    <link rel="up" title="Tech" href="index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
     <link rel="prev" title="Tech" href="index.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
@@ -131,8 +132,8 @@
         <li class="right" >
           <a href="index.html" title="Tech"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tech</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tech</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -228,8 +229,8 @@ and you will see.</p>
 <li><p class="first"><a class="reference external" href="https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server">set up a git server</a></p>
 </li>
 <li><p class="first">Initialize a git repo <strong>on server</strong> so that you can push to.</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>cd &lt;the path you want to put your git folder&gt;
-git init --bare yourreponame.git
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">the</span> <span class="n">path</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span> <span class="n">put</span> <span class="n">your</span> <span class="n">git</span> <span class="n">folder</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">init</span> <span class="o">--</span><span class="n">bare</span> <span class="n">yourreponame</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Then a folder named <code class="code docutils literal"><span class="pre">yourreponame.git</span></code> will be created under <code class="code docutils literal"><span class="pre">&lt;the</span> <span class="pre">path</span> <span class="pre">you</span> <span class="pre">want</span> <span class="pre">to</span> <span class="pre">put</span> <span class="pre">your</span> <span class="pre">git</span> <span class="pre">folder&gt;</span></code>.</p>
@@ -238,14 +239,23 @@ git init --bare yourreponame.git
 </li>
 </ol>
 <p>Here I&#8217;ll use my own machines as an example. After setting up the git server, I create initialized empty git repo on this server, under path <code class="code docutils literal"><span class="pre">/home/neutrino/gitserver/</span></code> (where neutrino is my user name on this ubuntu machine)</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>git init --bare codebase.git
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span> <span class="o">--</span><span class="n">bare</span> <span class="n">codebase</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Then I find this folder named <code class="code docutils literal"><span class="pre">codebase.git</span></code> under this path <code class="code docutils literal"><span class="pre">/home/neutrino/gitserver/</span></code>. The work on the server side is done now. This server has a name <code class="code docutils literal"><span class="pre">physicists.edu</span></code> (which I made up), on my local machine I clone it by</p>
-<div class="code bash highlight-python"><div class="highlight"><pre><span></span>git clone ssh://neutrino@physicists.edu/home/neutrino/gitserver/codebase.git
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">ssh</span><span class="p">:</span><span class="o">//</span><span class="n">neutrino</span><span class="nd">@physicists</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">neutrino</span><span class="o">/</span><span class="n">gitserver</span><span class="o">/</span><span class="n">codebase</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 <p>Whatever follows is to cd to this folder and start working on local machine then add, commit, and push.</p>
+<div class="notes admonition">
+<p class="first admonition-title">Push Existing Repos</p>
+<p>What if I already have a repo locally and need to push it to this new server? Use :code:<a href="#id1"><span class="problematic" id="id2">`</span></a>git remote add <a href="#id3"><span class="problematic" id="id4">`</span></a>. Here is an example.</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">newgitserver</span> <span class="n">ssh</span><span class="p">:</span><span class="o">//</span><span class="n">neutrino</span><span class="nd">@physicists</span><span class="o">.</span><span class="n">edu</span><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">neutrino</span><span class="o">/</span><span class="n">gitserver</span><span class="o">/</span><span class="n">codebase</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Change newgitserver to whatever you like. After that <code class="code docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">newgitserver</span></code> will push the codes to the new server.</p>
+<p class="last">Alternatively, you can change .git/config and name this new one the origin.</p>
+</div>
 <p>References:</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config">Setting up a repository &#64; atlassian.com</a></li>
@@ -287,7 +297,7 @@ git init --bare yourreponame.git
 <li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Tech</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">Git</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Git</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#using-git-only-the-basics">Using Git (Only The Basics)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git-services">Git Services</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#git-on-server">Git on Server</a></li>
@@ -310,14 +320,11 @@ git init --bare yourreponame.git
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script><h3>Bug Report and Chat</h3>
 <p>
@@ -336,7 +343,7 @@ git init --bare yourreponame.git
 
 <!-- 多说评论框 start -->
 <!--
-  <div class="ds-thread" data-thread-key="" data-title="Git &mdash; Computational Neutrino Physics" data-url=""></div>
+  <div class="ds-thread" data-thread-key="" data-title="Git &#8212; Computational Neutrino Physics" data-url=""></div>
 -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -377,11 +384,11 @@ var duoshuoQuery = {short_name:"sci2fi"};
       <a href="/genindex.html">Index</a>
       |
       
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../_sources/tech/git.txt"
+      <a href="../_sources/tech/git.rst.txt"
           rel="nofollow">Page source</a></li>
     </div>
 

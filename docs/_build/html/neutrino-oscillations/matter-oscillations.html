@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Oscillations in Matter &mdash; Computational Neutrino Physics</title>
+    <title>Oscillations in Matter &#8212; Computational Neutrino Physics</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -20,14 +20,18 @@
         VERSION:     'Pi',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Computational Neutrino Physics" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Artificial Neural Networks" href="../artificial-neural-network/index.html" />
+    <link rel="prev" title="Vacuum Oscillations" href="vacuum-oscillations.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -126,7 +130,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &raquo;</li> 
+        <li class="right" >
+          <a href="../artificial-neural-network/index.html" title="Artificial Neural Networks"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vacuum-oscillations.html" title="Vacuum Oscillations"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Numerical Neutrino Osillations</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -276,7 +287,7 @@
 
         <span class="n">probsave</span><span class="p">[</span><span class="n">flagsave</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># save the probability</span>
 
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">r&#39;assets/probtrans-test-1e7.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_handle</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;assets/probtrans-test-1e7.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_handle</span><span class="p">:</span>
             <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">f_handle</span><span class="p">,</span> <span class="n">probsave</span><span class="p">[</span><span class="n">flagsave</span><span class="p">])</span>
 
         <span class="n">flagsave</span> <span class="o">=</span> <span class="n">flagsave</span> <span class="o">+</span> <span class="mi">1</span>
@@ -316,11 +327,21 @@
 
 
 <h3>ToC</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Numerical Neutrino Osillations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="vacuum-oscillations.html">Vacuum Oscillations</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Oscillations in Matter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-numpy-and-scipy-ode">Using numpy and scipy.ode</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tech/index.html">Tech</a></li>
 </ul>
 
 
@@ -336,14 +357,11 @@
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
 </div>
 <script type="text/javascript">$('#searchbox').show(0);</script><h3>Bug Report and Chat</h3>
 <p>
@@ -362,7 +380,7 @@
 
 <!-- 多说评论框 start -->
 <!--
-  <div class="ds-thread" data-thread-key="" data-title="Oscillations in Matter &mdash; Computational Neutrino Physics" data-url=""></div>
+  <div class="ds-thread" data-thread-key="" data-title="Oscillations in Matter &#8212; Computational Neutrino Physics" data-url=""></div>
 -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -403,11 +421,11 @@ var duoshuoQuery = {short_name:"sci2fi"};
       <a href="/genindex.html">Index</a>
       |
       
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../_sources/neutrino-oscillations/matter-oscillations.txt"
+      <a href="../_sources/neutrino-oscillations/matter-oscillations.rst.txt"
           rel="nofollow">Page source</a></li>
     </div>
 
