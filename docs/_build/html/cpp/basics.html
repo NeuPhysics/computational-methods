@@ -30,6 +30,8 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Manipulating Matrices in C++" href="manipulating-matrices.html" />
+    <link rel="prev" title="The C++ Language" href="index.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -128,7 +130,14 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &#187;</li> 
+        <li class="right" >
+          <a href="manipulating-matrices.html" title="Manipulating Matrices in C++"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="The C++ Language"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The C++ Language</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -146,8 +155,41 @@
 <div class="section" id="concepts">
 <h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Class: private, public, atrributes, method, constructor, destructor, polymorphism</li>
+<li>Namespace</li>
+<li>Operators: assignment operators (=,+=,-=,*=,/=,%=), increment/decrement operator (++x,x++,&#8211;x,x&#8211;), relational operators (&gt;,&lt;,&gt;=,&lt;=,==,!=), left shift (&lt;&lt;), extration operator (&gt;&gt;, or right shift), understand the operator precedence</li>
 </ol>
+<p>3. Variables: variable name starts with underscore or latin letters
+5. if/else and Loops: if (condition is true ){ then something }
+6. Class: private, public, atrributes, method, constructor, destructor, polymorphism</p>
+<div class="section" id="clarifications">
+<h3>Clarifications<a class="headerlink" href="#clarifications" title="Permalink to this headline">¶</a></h3>
+<p>Increment/decrement operator has a very high precedence if applied from the left.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
+<span class="c1">// prefix: x=3, y=3; ++ is calculated first then assigned to y;</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">++</span><span class="p">;</span>
+<span class="c1">// postfix: a = 4, b= 3; ++ is calculated after the asignment</span>
+</pre></div>
+</div>
+<p>Omitted curly braces in if/else statement works if it has only one statement. If you like Python, this is an excellent practice.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+
+   <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">j</span><span class="p">)</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;i&gt;j&quot;</span><span class="p">;</span>
+   <span class="k">else</span>
+      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;j&lt;=i&quot;</span><span class="p">;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -172,10 +214,19 @@
 
 
 <h3>ToC</h3>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">The C++ Language</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">C++ Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#make-it-work">Make it Work</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#concepts">Concepts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manipulating-matrices.html">Manipulating Matrices in C++</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>

@@ -3,5 +3,11 @@ project(cpp)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp basics/vectors_in_cpp.cpp basics/animal.cpp basics/animal.h)
-add_executable(cpp ${SOURCE_FILES})
+#set(SOURCE_FILES main.cpp basics/vectors_in_cpp.cpp basics/animal.cpp basics/animal.h basics/if-else.cpp)
+#add_executable(cpp ${SOURCE_FILES})
+
+#set(SOURCE_FILES_if_else basics/if-else.cpp)
+#add_executable(cpp ${SOURCE_FILES_if_else})
+
+set(SOURCE_FILES_test basics/if-else.cpp)
+add_executable(cpp ${SOURCE_FILES_test})
