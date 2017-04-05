@@ -24,3 +24,25 @@ Lectures
 4. `Coursear Course: C++ For C Programmers, Part A <https://www.coursera.org/learn/c-plus-plus-a>`_
 5. `Top C++ Courses and Tutorials <https://www.udemy.com/courses/development/programming-languages/C-plus-plus-tutorials/>`_
 6. `On SoloLearn: C++ Tutorial <https://www.sololearn.com/Course/CPlusPlus/>`_
+
+
+Libraries
+~~~~~~~~~~~~~~~
+
+
+For solving differential equations:
+
+1. http://headmyshoulder.github.io/odeint-v2/
+2. http://www.mcs.anl.gov/petsc/
+3. https://github.com/trilinos/Trilinos
+4. http://homepage.math.uiowa.edu/~dstewart/meschach/meschach.html
+
+
+
+Julia
+-----------------
+
+Libraries
+~~~~~~~~~~~~~~~~~~~~~~
+
+1. https://github.com/JuliaDiffEq/DifferentialEquations.jl

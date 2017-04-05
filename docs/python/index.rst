@@ -7,3 +7,4 @@ Python Basics
     :maxdepth: 2
 
     python-basics.rst
+    performance.rst
