@@ -9,5 +9,5 @@ set(CMAKE_CXX_STANDARD 14)
 #set(SOURCE_FILES_if_else basics/if-else.cpp)
 #add_executable(cpp ${SOURCE_FILES_if_else})
 
-set(SOURCE_FILES_test basics/if-else.cpp)
+set(SOURCE_FILES_test basics/constructors.cpp)
 add_executable(cpp ${SOURCE_FILES_test})

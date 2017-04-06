@@ -26,6 +26,11 @@ Lectures
 6. `On SoloLearn: C++ Tutorial <https://www.sololearn.com/Course/CPlusPlus/>`_
 
 
+Practice
+~~~~~~~~~~~~~~~~~~~~
+
+`SoloLearn <https://code.sololearn.com/#cpp>`_ provides `this code playground <https://code.sololearn.com/#cpp>`_ that we can use to test c++ codes.
+
 Libraries
 ~~~~~~~~~~~~~~~
 

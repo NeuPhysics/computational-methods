@@ -156,15 +156,20 @@
 <h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Namespace</li>
-<li>Operators: assignment operators (=,+=,-=,*=,/=,%=), increment/decrement operator (++x,x++,&#8211;x,x&#8211;), relational operators (&gt;,&lt;,&gt;=,&lt;=,==,!=), left shift (&lt;&lt;), extration operator (&gt;&gt;, or right shift), understand the operator precedence</li>
+<li>Operators: assignment operators (=,+=,-=,*=,/=,%=), increment/decrement operator (++x,x++,&#8211;x,x&#8211;), relational operators (&gt;,&lt;,&gt;=,&lt;=,==,!=), logicl operators (&amp;&amp;,||,!), left shift (&lt;&lt;), extration operator (&gt;&gt;, or right shift), understand the operator precedence</li>
+<li>Variables: variable name starts with underscore or latin letters, Pascal case (PascalCase), Camel case (pascalCase)</li>
+<li>if/else and Loops: if (condition is true ){ then something }</li>
+<li>Data Types: string (double quote), character (char, 1 byte ASCII character, using single quote), float (4 bytes, always signed), double (8 bytes, always signed), long double (8 or 16 bytes, always signed), singed or unsigned short or long int (signed long int, unsigned int)</li>
+<li>Pointers: ampersand (&amp;) accesses the address, pointer is variable thus needs to be declared using asterisk ( * ), can be declared to be int or double or float or char (int *pt; int* pt; int * pt; )</li>
+<li>Functions: overload, recursion</li>
+<li>Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection -&gt;, used to access members with pointer), inheritance, polymorphism</li>
 </ol>
-<p>3. Variables: variable name starts with underscore or latin letters
-5. if/else and Loops: if (condition is true ){ then something }
-6. Class: private, public, atrributes, method, constructor, destructor, polymorphism</p>
 <div class="section" id="clarifications">
 <h3>Clarifications<a class="headerlink" href="#clarifications" title="Permalink to this headline">¶</a></h3>
+<div class="note admonition">
+<p class="first admonition-title">Increment and Decrement Operator</p>
 <p>Increment/decrement operator has a very high precedence if applied from the left.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="o">++</span><span class="n">x</span><span class="p">;</span>
 <span class="c1">// prefix: x=3, y=3; ++ is calculated first then assigned to y;</span>
 
@@ -173,8 +178,11 @@
 <span class="c1">// postfix: a = 4, b= 3; ++ is calculated after the asignment</span>
 </pre></div>
 </div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Omitted Curly Braces in if statement</p>
 <p>Omitted curly braces in if/else statement works if it has only one statement. If you like Python, this is an excellent practice.</p>
-<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
 
 <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -188,6 +196,257 @@
    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">default statement for switch</p>
+<p>default statement for swtich must be at the end of the statements of switch.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">18</span><span class="p">;</span>
+<span class="k">switch</span> <span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Baby&quot;</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="mi">6</span><span class="o">:</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Boy&quot;</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">:</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Oh yeah?&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">strings and string library</p>
+<p class="last">&lt;string&gt; library is necessay for string data type but it is also included in other libs such as &lt;iostream&gt;.</p>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Tips about Pointers</p>
+<p>To understand the ampersand and asterisk operators, we look at the following example.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">42</span><span class="p">;</span>
+<span class="kt">int</span>  <span class="o">*</span><span class="n">ptrx</span><span class="p">,</span> <span class="o">*</span><span class="n">ptry</span><span class="p">,</span> <span class="o">*</span><span class="n">ptrz</span><span class="p">;</span>
+<span class="n">ptrx</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">x</span><span class="p">;</span>
+<span class="n">ptry</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">y</span><span class="p">;</span>
+<span class="n">ptrz</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">z</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 42; since it&#39;s a variable</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptrz</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 0x28ff18; only for this run;  ptr is the memory address</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptrz</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 42; since dereference operator (*) is dereferencing it</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">z</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptrz</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+<span class="o">*</span><span class="n">ptrz</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptrz</span> <span class="o">+</span> <span class="n">x</span><span class="p">;</span>
+<span class="c1">// all three are equivalent to z = z + x</span>
+
+<span class="o">*</span><span class="n">ptrz</span> <span class="o">=</span> <span class="o">*</span><span class="n">ptrx</span> <span class="o">+</span> <span class="o">*</span><span class="n">ptry</span><span class="p">;</span>
+<span class="c1">// equivalent to z = x + y</span>
+</pre></div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="first admonition-title">Function Overloading</p>
+<p class="last">Function overloading can be done by varying parameter types or number of parameters but not by change return type.</p>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Recursion in C++</p>
+<p>The best example for recursion is to calculate factorials.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="c1">// this is also called the base case;</span>
+   <span class="p">}</span>
+   <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+      <span class="c1">// recursion until the argument passed to factorial becomes 1 then it returns the base case;</span>
+   <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Passing Arguments to Function by Value or Reference</p>
+<p>Passing by value is what we usally do. The function essentially copies the value of the parameters. Thus any change of the parameters inside function doesn&#8217;t change the original passed variables.</p>
+<p>Passing by reference is very different. It passes the pointer to the function and thus any change to the parameters will change the originally defiend variables.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">int</span> <span class="nf">addOne</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+   <span class="k">return</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// defined to take pointers as parameters;</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+   <span class="c1">// declare a variable which has a value 42;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a is &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// output the value of a before calling the function;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;addOne(a)&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">addOne</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// the function return;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;a becomes &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// since I used += in the function, the value of the parameters changed;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Defining Class</p>
+<p>When define class a semicolon is always attached to the end of it.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">TheClassYouNeed</span> <span class="p">{</span>
+
+   <span class="c1">//blablabla</span>
+
+<span class="p">};</span>
+<span class="c1">// the semicolon</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Constructor in Class</p>
+<p>When we need to initialize some variables in the class, constructor is helpful.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">TheClassYouNeed</span> <span class="p">{</span>
+
+      <span class="k">public</span><span class="o">:</span>
+         <span class="n">TheClassYouNeed</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">setWeight</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+         <span class="p">}</span>
+
+         <span class="kt">void</span> <span class="n">setWeight</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">weight</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+         <span class="p">}</span>
+
+         <span class="kt">int</span> <span class="n">getWeight</span><span class="p">()</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="n">weight</span><span class="p">;</span>
+         <span class="p">}</span>
+
+
+      <span class="k">private</span><span class="o">:</span>
+         <span class="kt">int</span> <span class="n">weight</span><span class="p">;</span>
+
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="n">TheClassYouNeed</span> <span class="n">cs1</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+   <span class="c1">// constructor function will take the number 42 and pass it to weight;</span>
+
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cs1</span><span class="p">.</span><span class="n">getWeight</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+   <span class="c1">// output the weight of object cs1;</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Two Files to Write a New Class</p>
+<p>We usually write class seperately in different classes. In this case we need to create two files, TheClassYouNeed.h and TheClassYouNeed.cpp.</p>
+<p>In .h file we define the header.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#ifndef THECLASSYOUNEED_H </span><span class="c1">// #ifndef = if not defined; prevents from defining twice;</span>
+<span class="cp">#define THECLASSYOUNEED_H </span><span class="c1">// then we define this</span>
+
+<span class="c1">// the declarations of class</span>
+
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+<p>In .h file we declare everything while in .cpp we define the constructor/desctructor and functions/methods/behaviors.</p>
+<p>When creating object using the class in the main function, we need to</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;TheClassYouNeed.h&quot;</span><span class="cp"></span>
+</pre></div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="first admonition-title">Constants and Constant Objects</p>
+<p>Constant variables have to be initialized on creation.</p>
+<p>Constant objects should also be initialized using constructor. So the class has to have a constructor in it even without any parameters. Constant objects can NOT call non-constant functions, thus the methods are defined to be constant functions.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cm">/* in the header file of the class */</span>
+
+<span class="c1">// bla bla</span>
+<span class="kt">void</span> <span class="nf">yourFunctionHere</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+<span class="c1">// bla bla</span>
+
+<span class="cm">/* in the source file of the class */</span>
+
+<span class="c1">// bla bla</span>
+<span class="kt">void</span> <span class="n">TheClassYouNeed</span><span class="o">::</span><span class="n">yourFunctionHere</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+   <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&quot;Hello&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="c1">// bla bla</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="dynamic-memory">
+<h3>Dynamic Memory<a class="headerlink" href="#dynamic-memory" title="Permalink to this headline">¶</a></h3>
+<p>There are two basic concepts of memory in C++, the stack and the heap. Declared variables in all the functions used in a program use memory from stack while the heap is some pool of memory ready for dynamical allocation.</p>
+<p>The stack memory is will be released when the function return at the last step. It is also FILO, aka first in last out.</p>
+<p>To access the heap, we use the new operator.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<span class="c1">// Allocate the memory for an integer on the heap; meanwhile returns the address for future use;</span>
+<span class="c1">// The memory can be accessed globally;</span>
+<span class="c1">// Needs to be freed later;</span>
+<span class="c1">// Can be resized using realloc();</span>
+<span class="c1">// can be deleted using delete ptr;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// the address of the allocated memory</span>
+
+<span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>
+<span class="c1">// assign values to the memory</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// 42; output the values at the memory</span>
+
+<span class="k">delete</span> <span class="n">ptr</span><span class="p">;</span>
+<span class="c1">// delete the value at the memory but the ptr is still there since it is stored in the stack memory;</span>
+</pre></div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">NULL</p>
+<p>Assign a ponter NULL when defining it is a good habbit.</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+<span class="c1">// none of them outputs anything</span>
+
+<span class="n">ptr</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">[</span><span class="mi">42</span><span class="p">];</span>
+<span class="c1">// allocate memory for an array of length 42;</span>
+
+<span class="k">delete</span> <span class="p">[]</span> <span class="n">ptr</span><span class="p">;</span>
+<span class="c1">// delete the array that the pointer ptr is associated with;</span>
+<span class="c1">// [] means delete the array</span>
+</pre></div>
+</div>
+<p>Functions should be declared in the file that calls the function if it&#8217;s defined in another file. The declaration of function can be seperate from the definition of the function.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">goldHeart</span><span class="p">();</span>
+<span class="c1">// this is the declaration of the function; notice we have not defined it</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+
+   <span class="n">goldHeart</span><span class="p">();</span>
+
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">goldHeart</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">// here is the definition of the function;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
