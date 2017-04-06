@@ -25,7 +25,7 @@ Concepts
 
 7. Functions: overload, recursion
 
-8. Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection ->, used to access members with pointer), inheritance, polymorphism
+8. Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection ->, used to access members with pointer), composition (assemble a larger class using small classes), friend function (friend void aFunc(); to access private members), inheritance, polymorphism
 
 
 Clarifications
@@ -301,8 +301,25 @@ Clarifications
 
 
 
+.. admonition:: Initializaing Constant Variables in Class
+   :class: note
+
+   Have to use **member initializers** instead of the usual way.
+
+   But friend function is **not** a member of the class.
 
 
+
+.. admonition:: Passing Object to Function
+   :class: note
+
+   Need to pass the reference of the object to the function.
+
+   .. code-block:: c++
+
+      void yourFunction(TheClassYouNeed &anObject) {
+      // bla bla
+      }
 
 
 Dynamic Memory

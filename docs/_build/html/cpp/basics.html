@@ -162,7 +162,7 @@
 <li>Data Types: string (double quote), character (char, 1 byte ASCII character, using single quote), float (4 bytes, always signed), double (8 bytes, always signed), long double (8 or 16 bytes, always signed), singed or unsigned short or long int (signed long int, unsigned int)</li>
 <li>Pointers: ampersand (&amp;) accesses the address, pointer is variable thus needs to be declared using asterisk ( * ), can be declared to be int or double or float or char (int *pt; int* pt; int * pt; )</li>
 <li>Functions: overload, recursion</li>
-<li>Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection -&gt;, used to access members with pointer), inheritance, polymorphism</li>
+<li>Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection -&gt;, used to access members with pointer), composition (assemble a larger class using small classes), friend function (friend void aFunc(); to access private members), inheritance, polymorphism</li>
 </ol>
 <div class="section" id="clarifications">
 <h3>Clarifications<a class="headerlink" href="#clarifications" title="Permalink to this headline">¶</a></h3>
@@ -385,6 +385,20 @@
    <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="s">&quot;Hello&quot;</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="c1">// bla bla</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Initializaing Constant Variables in Class</p>
+<p>Have to use <strong>member initializers</strong> instead of the usual way.</p>
+<p class="last">But friend function is <strong>not</strong> a member of the class.</p>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Passing Object to Function</p>
+<p>Need to pass the reference of the object to the function.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">yourFunction</span><span class="p">(</span><span class="n">TheClassYouNeed</span> <span class="o">&amp;</span><span class="n">anObject</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// bla bla</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
