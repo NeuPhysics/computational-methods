@@ -162,7 +162,9 @@
 <li>Data Types: string (double quote), character (char, 1 byte ASCII character, using single quote), float (4 bytes, always signed), double (8 bytes, always signed), long double (8 or 16 bytes, always signed), singed or unsigned short or long int (signed long int, unsigned int)</li>
 <li>Pointers: ampersand (&amp;) accesses the address, pointer is variable thus needs to be declared using asterisk ( * ), can be declared to be int or double or float or char (int *pt; int* pt; int * pt; )</li>
 <li>Functions: overload, recursion</li>
-<li>Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection -&gt;, used to access members with pointer), composition (assemble a larger class using small classes), friend function (friend void aFunc(); to access private members), inheritance, polymorphism</li>
+<li>Class: identity, atrributes, method/behavior, access specifiers (private or public or protected, by default it is set to private), instantiation of object (creating object), constructor, destructor, encapsulation, scope resolution operator (TheClassYouNeed::somefunction() ), selection operator (dot member selection . used to access members, or arrow member selection -&gt;, used to access members with pointer), composition (assemble a larger class using small classes), friend function (friend void aFunc(); to access private members), this pointer (this -&gt; var, (<a href="#id1"><span class="problematic" id="id2">*</span></a>this).var ), operator overloading (using operator key), inheritance (Base class, Derived class), polymorphism, virtual function (using virtual key, useful in polymorphism, pure virtual function is virtual void attack() = 0;)</li>
+<li>Function Templates:</li>
+<li>Exceptions: try, catch, throw</li>
 </ol>
 <div class="section" id="clarifications">
 <h3>Clarifications<a class="headerlink" href="#clarifications" title="Permalink to this headline">¶</a></h3>
@@ -195,6 +197,13 @@
 
    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Comparing Two Numbers</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="o">?</span> <span class="nl">a</span> <span class="p">:</span> <span class="n">b</span>
+<span class="c1">// output a if express a&lt;b is true otherwise output b;</span>
 </pre></div>
 </div>
 </div>
@@ -399,6 +408,20 @@
 <div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">yourFunction</span><span class="p">(</span><span class="n">TheClassYouNeed</span> <span class="o">&amp;</span><span class="n">anObject</span><span class="p">)</span> <span class="p">{</span>
 <span class="c1">// bla bla</span>
 <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Derived Class Does Not Inherit All</p>
+<p>Constructors/destructors, overloaded operators and friend functions are not inherited from base class.</p>
+<p class="last">Private members can not be accessed from derived class but <strong>protected</strong> members can be.</p>
+</div>
+<div class="warning admonition">
+<p class="first admonition-title">Pure Virtual Functions in Polymorphism</p>
+<p>When we use a pure virtual function in base class, the derived class must override it.</p>
+<p>Base class with pure virtual function can <strong>NOT</strong> be used to create objects. Thus these classes are called <strong>abstract classes</strong>.</p>
+<div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="k">virtual</span> <span class="kt">void</span> <span class="nf">attack</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="c1">//this is a pure virtual function, which must be overrided;</span>
 </pre></div>
 </div>
 </div>
