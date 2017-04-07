@@ -41,7 +41,19 @@ For solving differential equations:
 2. http://www.mcs.anl.gov/petsc/
 3. https://github.com/trilinos/Trilinos
 4. http://homepage.math.uiowa.edu/~dstewart/meschach/meschach.html
+5. http://www.boost.org/
+6. http://www.feynarts.de/cuba/
+7. https://www.gnu.org/software/gsl/
 
+
+Linear algebra
+
+1. http://www.simunova.com/mtl4
+
+
+Comparison of libs
+
+1. Boost is faster than GSL in terms of random numbers and odeint. `Source <https://dilawarnotes.wordpress.com/2016/04/21/benchmark-ode-solver-gsl-vs-boost-odeint-library/>`_
 
 
 Julia

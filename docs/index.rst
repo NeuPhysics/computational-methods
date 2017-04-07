@@ -23,5 +23,5 @@ Here is an index: `genindex.html <genindex.html>`_ .
     numerical-methods/index.rst
     neutrino-oscillations/index.rst
     artificial-neural-network/index.rst
-    tech/index.rst
+    tools/index.rst
     references/index.rst
