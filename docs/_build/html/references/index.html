@@ -30,7 +30,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Git" href="../tech/git.html" />
+    <link rel="prev" title="Git" href="../tools/git.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -130,7 +130,7 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../tech/git.html" title="Git"
+          <a href="../tools/git.html" title="Git"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Computational Neutrino Physics</a> &#187;</li> 
       </ul>
@@ -176,6 +176,17 @@
 <li><a class="reference external" href="http://www.mcs.anl.gov/petsc/">http://www.mcs.anl.gov/petsc/</a></li>
 <li><a class="reference external" href="https://github.com/trilinos/Trilinos">https://github.com/trilinos/Trilinos</a></li>
 <li><a class="reference external" href="http://homepage.math.uiowa.edu/~dstewart/meschach/meschach.html">http://homepage.math.uiowa.edu/~dstewart/meschach/meschach.html</a></li>
+<li><a class="reference external" href="http://www.boost.org/">http://www.boost.org/</a></li>
+<li><a class="reference external" href="http://www.feynarts.de/cuba/">http://www.feynarts.de/cuba/</a></li>
+<li><a class="reference external" href="https://www.gnu.org/software/gsl/">https://www.gnu.org/software/gsl/</a></li>
+</ol>
+<p>Linear algebra</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://www.simunova.com/mtl4">http://www.simunova.com/mtl4</a></li>
+</ol>
+<p>Comparison of libs</p>
+<ol class="arabic simple">
+<li>Boost is faster than GSL in terms of random numbers and odeint. <a class="reference external" href="https://dilawarnotes.wordpress.com/2016/04/21/benchmark-ode-solver-gsl-vs-boost-odeint-library/">Source</a></li>
 </ol>
 </div>
 </div>
@@ -187,6 +198,18 @@
 <li><a class="reference external" href="https://github.com/JuliaDiffEq/DifferentialEquations.jl">https://github.com/JuliaDiffEq/DifferentialEquations.jl</a></li>
 </ol>
 </div>
+</div>
+<div class="section" id="storage-of-data">
+<h2>Storage of Data<a class="headerlink" href="#storage-of-data" title="Permalink to this headline">¶</a></h2>
+<p>tl;dr: Use HDF5</p>
+<ol class="arabic simple">
+<li>HDF5</li>
+<li><a class="reference external" href="http://bcolz.blosc.org/en/latest/">BCOLZ</a> : not designed for multidimentional data.</li>
+<li><a class="reference external" href="https://github.com/alimanfoo/zarr">Zarr</a> : works with multidimensional data and also parallel computating.</li>
+<li><a class="reference external" href="http://blaze.pydata.org/">Blaze ecosystem</a></li>
+</ol>
+<p>A article that compares HDF5, BCOLZ, and Zarr:<a class="reference external" href="http://alimanfoo.github.io/2016/04/14/to-hdf5-and-beyond.html">To HDF5 and beyond</a></p>
+<p>I also recommend pandas. It is a python module that works very well with data. It even loads HDF5 out of box.</p>
 </div>
 </div>
 
@@ -219,7 +242,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tech/index.html">Tech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tech</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">References</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#c">C++</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#books">Books</a></li>
@@ -232,6 +255,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id1">Libraries</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#storage-of-data">Storage of Data</a></li>
 </ul>
 </li>
 </ul>

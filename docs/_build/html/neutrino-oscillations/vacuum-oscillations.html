@@ -148,6 +148,37 @@
             
   <div class="section" id="vacuum-oscillations">
 <h1>Vacuum Oscillations<a class="headerlink" href="#vacuum-oscillations" title="Permalink to this headline">¶</a></h1>
+<div class="warning admonition">
+<p class="first admonition-title">Choice of Unit</p>
+<p>For numericall purpose, we choose to scale distance x using <span class="math">\(\omega\)</span>.</p>
+<p>Suppose we use MeV for energy scales, the distance <span class="math">\(\hat x = \omega x\)</span> is related to actually distance <span class="math">\(x\)</span> in km through</p>
+<div class="last math">
+\[x = \frac{\hat x}{\omega_v} = \frac{\hat x}{  1.90\times 10^{-4}  \mathrm{m}^{-1}  \frac{\delta m^2}{7.5\times 10^{-5}\mathrm{eV}^2} \frac{1\mathrm{MeV}}{E} } = \frac{\hat x}{0.190} \mathrm{km} \frac{7.5\times 10^{-5}\mathrm{eV}^2}{\delta m^2}  \frac{E}{1\mathrm{MeV}}.\]</div>
+</div>
+<p>The numericall system is</p>
+<div class="math">
+\[\frac{d\psi}{dx} = -i H \psi,\]</div>
+<p>where <span class="math">\(\psi\)</span> is the wave function</p>
+<div class="math">
+\[\begin{split}\psi = \begin{pmatrix}
+\psi_0 \\
+\psi_1
+\end{pmatrix}\end{split}\]</div>
+<p>and <span class="math">\(H\)</span> is the vacuum Hamiltonian</p>
+<div class="math">
+\[\begin{split}H = \frac{\omega}{2}\begin{pmatrix}
+-\cos2\theta &amp;\sin 2\theta \\
+\sin 2\theta &amp; \cos 2\theta
+\end{pmatrix}.\end{split}\]</div>
+<p>Initial condition is set to be</p>
+<div class="math">
+\[\begin{split}\psi(0) = \begin{pmatrix}
+1 \\
+0
+\end{pmatrix}.\end{split}\]</div>
+<p>The theoretical prediction for survival probability of the first flavor is</p>
+<div class="math">
+\[P  = 1 - \sin^2 2\theta \sin^2 ( \omega x/2 ).\]</div>
 </div>
 
 
@@ -175,6 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Numerical Neutrino Osillations</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Vacuum Oscillations</a></li>
@@ -182,7 +214,8 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tech/index.html">Tech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tech</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
 </ul>
 
 
