@@ -7,3 +7,4 @@ Finite Element Method
    :maxdepth: 2
 
    pde-and-boundary-conditions.rst
+   galerkin-method.rst

@@ -44,3 +44,5 @@ Define temperature on a bar at each point :math:`u(x)`. Heat transfer is proport
 
 Strong Form and Weak Form of PDE
 ----------------------------------
+
+Strong form of differential equations is basically the original form we write down. Strong form requires each term to be well defined at each point. However, we can derive a weak form that require each part to be well defined through the whole domain only, which is a relaxed requirement.

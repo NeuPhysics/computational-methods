@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Manipulating Matrices in C++ &#8212; Computational Methods</title>
+    <title>Galerkin Method &#8212; Computational Methods</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numerical Methods" href="../numerical-methods/index.html" />
-    <link rel="prev" title="C++ Basics" href="basics.html" />
+    <link rel="next" title="Numerical Neutrino Osillations" href="../neutrino-oscillations/index.html" />
+    <link rel="prev" title="Differential Equations and Boundary Conditions" href="pde-and-boundary-conditions.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -63,7 +63,7 @@
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-  <link rel="canonical" href="http://computational.neutrino.xyz/cpp/manipulating-matrices.html"/>
+  <link rel="canonical" href="http://computational.neutrino.xyz/finite-element-method/galerkin-method.html"/>
 
 
 
@@ -131,13 +131,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../numerical-methods/index.html" title="Numerical Methods"
+          <a href="../neutrino-oscillations/index.html" title="Numerical Neutrino Osillations"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="basics.html" title="C++ Basics"
+          <a href="pde-and-boundary-conditions.html" title="Differential Equations and Boundary Conditions"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Computational Methods</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">The C++ Language</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Finite Element Method</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -146,8 +146,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="manipulating-matrices-in-c">
-<h1>Manipulating Matrices in C++<a class="headerlink" href="#manipulating-matrices-in-c" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="galerkin-method">
+<h1>Galerkin Method<a class="headerlink" href="#galerkin-method" title="Permalink to this headline">¶</a></h1>
+<p>Suppose we need to find the solution to equation</p>
+<div class="math">
+\[\mathcal L_{x} \psi(x) = f(x).\]</div>
+<p>The key is that the solution can be approximated by</p>
+<div class="math">
+\[\psi(x) = \sum_i u_i \phi_i(x),\]</div>
+<p>where <span class="math">\(\phi_i(x)\)</span> are the basis functions.</p>
+<p><strong>The purpose is to find the the coefficients</strong> <span class="math">\(u_i\)</span>. Galerkin method has three steps.</p>
+<ol class="arabic simple">
+<li>discretize the space <span class="math">\(x\)</span> and function space: triangulation,</li>
+<li>discretize the function using weak form: assembly,</li>
+<li>error estimation.</li>
+</ol>
+<p>Triangulation is basically setting up the basis function in a discretized space <span class="math">\(x\)</span>. One of the choice is the hat function.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/plot-using-linear-combinations.png" src="../_images/plot-using-linear-combinations.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Triangulation from <a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">comsol multiphysics</a>.</span></p>
+</div>
+<p>At each point <span class="math">\(x\)</span>, there is a hat function responsible for the approximation within <span class="math">\([x-\Delta x, x+\Delta x]\)</span>.</p>
+<p>Those hat functions forms the basis for the approximated solution</p>
+<div class="math">
+\[\psi = \sum_i u_i \phi_i.\]</div>
+<p>With this approximation, it requires the <em>test function</em> <span class="math">\(v\)</span> to write down the weak form. Basically we multiply <span class="math">\(v\)</span> on both sides of the equation then integrate by step. Then the differential equation can be rewrite into matrix form with basis <span class="math">\(\phi_i\)</span>,</p>
+<div class="math">
+\[\mathbf K \mathbf U = \mathbf L.\]</div>
+<div class="section" id="references-and-notes">
+<h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Freitag, K. J. (2007). Neural networks and differential equations.</li>
+<li><a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">COMSOL Multiphysics has a nice article</a>.</li>
+</ol>
+</div>
 </div>
 
 
@@ -175,12 +207,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">The C++ Language</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="basics.html">C++ Basics</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Manipulating Matrices in C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Finite Element Method</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pde-and-boundary-conditions.html">Differential Equations and Boundary Conditions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Galerkin Method</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references-and-notes">References and Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tech</a></li>
@@ -223,7 +259,7 @@
 
 <!-- 多说评论框 start -->
 <!--
-  <div class="ds-thread" data-thread-key="" data-title="Manipulating Matrices in C++ &#8212; Computational Methods" data-url=""></div>
+  <div class="ds-thread" data-thread-key="" data-title="Galerkin Method &#8212; Computational Methods" data-url=""></div>
 -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -268,7 +304,7 @@ var duoshuoQuery = {short_name:"sci2fi"};
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/cpp/manipulating-matrices.rst.txt"
+      <a href="../_sources/finite-element-method/galerkin-method.rst.txt"
           rel="nofollow">Page source</a></li>
     </div>
 

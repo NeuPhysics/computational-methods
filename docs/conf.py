@@ -42,10 +42,10 @@ html_sidebars = {
 
 html_theme_options = {
    'github_user': 'NeuPhysics',
-   'github_repo': 'computational-neutrino-physics',
+   'github_repo': 'computational-methods',
    'gratipay_user': 'emptymalei',
    'analytics_id': 'UA-66327435-5',
-   'description': 'Computational Neutrino Physics',
+   'description': 'Computational Methods',
 }
 
 # theme_canonical_url = 'http://computational.neutrino.xyz/' # Not working, please find themes/theme.conf and change canonical url there.
@@ -125,8 +125,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Computational Neutrino Physics'
-copyright = u'2016, Lei Ma'
+project = u'Computational Methods'
+copyright = u'2017, Lei Ma'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -339,7 +339,7 @@ latex_additional_files = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'neutrino', u'Computational Neutrino Physics',
+    ('index', 'neutrino', u'Computational Methods',
      [u'Lei Ma'], 1)
 ]
 
