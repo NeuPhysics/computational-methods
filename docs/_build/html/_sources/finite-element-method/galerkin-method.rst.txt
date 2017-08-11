@@ -38,6 +38,9 @@ With this approximation, it requires the *test function* :math:`v` to write down
 .. math::
    \mathbf K \mathbf U = \mathbf L.
 
+We solve the coefficients :math:`\mathbf U` from the matrix equation.
+
+
 
 References and Notes
 -----------------------

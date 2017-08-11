@@ -6,3 +6,4 @@ Artificial Neural Networks
    :maxdepth: 2
 
    ann.rst
+   neural-net-and-fem.rst

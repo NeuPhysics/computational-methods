@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Galerkin Method &#8212; Computational Methods</title>
+    <title>Neural Network and Finite Element Method &#8212; Computational Methods</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numerical Neutrino Osillations" href="../neutrino-oscillations/index.html" />
-    <link rel="prev" title="Differential Equations and Boundary Conditions" href="pde-and-boundary-conditions.html" />
+    <link rel="next" title="Tech" href="../tools/index.html" />
+    <link rel="prev" title="Artificial Neural Networks Basics" href="ann.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -63,7 +63,7 @@
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-  <link rel="canonical" href="http://computational.neutrino.xyz/finite-element-method/galerkin-method.html"/>
+  <link rel="canonical" href="http://computational.neutrino.xyz/artificial-neural-network/neural-net-and-fem.html"/>
 
 
 
@@ -131,13 +131,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="../neutrino-oscillations/index.html" title="Numerical Neutrino Osillations"
+          <a href="../tools/index.html" title="Tech"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="pde-and-boundary-conditions.html" title="Differential Equations and Boundary Conditions"
+          <a href="ann.html" title="Artificial Neural Networks Basics"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Computational Methods</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Finite Element Method</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Artificial Neural Networks</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -146,40 +146,23 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="galerkin-method">
-<h1>Galerkin Method<a class="headerlink" href="#galerkin-method" title="Permalink to this headline">¶</a></h1>
-<p>Suppose we need to find the solution to equation</p>
+  <div class="section" id="neural-network-and-finite-element-method">
+<h1>Neural Network and Finite Element Method<a class="headerlink" href="#neural-network-and-finite-element-method" title="Permalink to this headline">¶</a></h1>
+<p>Neural network is quite similar to finite element method. In terms of finite element method, we can write down a neural network structured form of a function <a class="reference internal" href="#freitag2007" id="id1">[Freitag2007]</a></p>
 <div class="math">
-\[\mathcal L_{x} \psi(x) = f(x).\]</div>
-<p>The key is that the solution can be approximated by</p>
+\[\psi(x_i) = A(x_i) + F(x_i, \mathcal N_i),\]</div>
+<p>where <span class="math">\(\mathcal N\)</span> is the neural network structure. Specifically,</p>
 <div class="math">
-\[\psi(x) = \sum_i u_i \phi_i(x),\]</div>
-<p>where <span class="math">\(\phi_i(x)\)</span> are the basis functions.</p>
-<p><strong>The purpose is to find the the coefficients</strong> <span class="math">\(u_i\)</span>. Galerkin method has three steps.</p>
-<ol class="arabic simple">
-<li>discretize the space <span class="math">\(x\)</span> and function space: triangulation,</li>
-<li>discretize the function using weak form: assembly,</li>
-<li>error estimation.</li>
-</ol>
-<p>Triangulation is basically setting up the basis function in a discretized space <span class="math">\(x\)</span>. One of the choice is the hat function.</p>
-<div class="figure align-center" id="id1">
-<img alt="../_images/plot-using-linear-combinations.png" src="../_images/plot-using-linear-combinations.png" />
-<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Triangulation from <a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">comsol multiphysics</a>.</span></p>
-</div>
-<p>At each point <span class="math">\(x\)</span>, there is a hat function responsible for the approximation within <span class="math">\([x-\Delta x, x+\Delta x]\)</span>.</p>
-<p>Those hat functions forms the basis for the approximated solution</p>
-<div class="math">
-\[\psi = \sum_i u_i \phi_i.\]</div>
-<p>With this approximation, it requires the <em>test function</em> <span class="math">\(v\)</span> to write down the weak form. Basically we multiply <span class="math">\(v\)</span> on both sides of the equation then integrate by step. Then the differential equation can be rewrite into matrix form with basis <span class="math">\(\phi_i\)</span>,</p>
-<div class="math">
-\[\mathbf K \mathbf U = \mathbf L.\]</div>
-<p>We solve the coefficients <span class="math">\(\mathbf U\)</span> from the matrix equation.</p>
+\[\mathcal N_i = \sigma( w_{ij} x_j + u_i ).\]</div>
+<p>The function is parameterized using the network. Such parameterization is similar to collocation method in finite element method, where multiple basis is used for each location.</p>
 <div class="section" id="references-and-notes">
 <h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li>Freitag, K. J. (2007). Neural networks and differential equations.</li>
-<li><a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">COMSOL Multiphysics has a nice article</a>.</li>
-</ol>
+<table class="docutils citation" frame="void" id="freitag2007" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Freitag2007]</a></td><td>Freitag, K. J. (2007). Neural networks and differential equations.</td></tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -210,16 +193,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Finite Element Method</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="pde-and-boundary-conditions.html">Differential Equations and Boundary Conditions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Galerkin Method</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../finite-element-method/index.html">Finite Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Artificial Neural Networks</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ann.html">Artificial Neural Networks Basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Neural Network and Finite Element Method</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#references-and-notes">References and Notes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tech</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a></li>
 </ul>
@@ -260,7 +243,7 @@
 
 <!-- 多说评论框 start -->
 <!--
-  <div class="ds-thread" data-thread-key="" data-title="Galerkin Method &#8212; Computational Methods" data-url=""></div>
+  <div class="ds-thread" data-thread-key="" data-title="Neural Network and Finite Element Method &#8212; Computational Methods" data-url=""></div>
 -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -305,7 +288,7 @@ var duoshuoQuery = {short_name:"sci2fi"};
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/finite-element-method/galerkin-method.rst.txt"
+      <a href="../_sources/artificial-neural-network/neural-net-and-fem.rst.txt"
           rel="nofollow">Page source</a></li>
     </div>
 
