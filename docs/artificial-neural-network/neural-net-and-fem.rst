@@ -28,6 +28,12 @@ One of the choice of the function :math:`F` is a linear combination,
 and :math:`A(x_i)` should take care of the boundary condition.
 
 
+.. admonition:: Relation to finite element method
+   :class: note
+
+   This function is similar to the finite element function basis approximation. The goal in finite element method is to find the coefficients of each basis functions to achieve a good approximation. In ANN method, each sigmoid is the analogy to the basis functions, where we are looking for both the coefficients of sigmoids and the parameters of them. These sigmoid functions are some kind of adaptive basis functions.
+
+
 
 With such parameterization, the differential equation itself is parameterized such that
 

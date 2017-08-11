@@ -148,6 +148,9 @@
             
   <div class="section" id="neural-network-and-finite-element-method">
 <h1>Neural Network and Finite Element Method<a class="headerlink" href="#neural-network-and-finite-element-method" title="Permalink to this headline">¶</a></h1>
+<p>We consider the solution to a differential equation</p>
+<div class="math">
+\[\mathcal L \psi - f = 0.\]</div>
 <p>Neural network is quite similar to finite element method. In terms of finite element method, we can write down a neural network structured form of a function <a class="reference internal" href="#freitag2007" id="id1">[Freitag2007]</a></p>
 <div class="math">
 \[\psi(x_i) = A(x_i) + F(x_i, \mathcal N_i),\]</div>
@@ -155,6 +158,21 @@
 <div class="math">
 \[\mathcal N_i = \sigma( w_{ij} x_j + u_i ).\]</div>
 <p>The function is parameterized using the network. Such parameterization is similar to collocation method in finite element method, where multiple basis is used for each location.</p>
+<p>One of the choice of the function <span class="math">\(F\)</span> is a linear combination,</p>
+<div class="math">
+\[F(x_i, \mathcal N_i) = x_i \mathcal N_i,\]</div>
+<p>and <span class="math">\(A(x_i)\)</span> should take care of the boundary condition.</p>
+<div class="note admonition">
+<p class="first admonition-title">Relation to finite element method</p>
+<p class="last">This function is similar to the finite element function basis approximation. The goal in finite element method is to find the coefficients of each basis functions to achieve a good approximation. In ANN method, each sigmoid is the analogy to the basis functions, where we are looking for both the coefficients of sigmoids and the parameters of them. These sigmoid functions are some kind of adaptive basis functions.</p>
+</div>
+<p>With such parameterization, the differential equation itself is parameterized such that</p>
+<div class="math">
+\[\mathcal L \psi - f = 0,\]</div>
+<p>such that the minimization should be</p>
+<div class="math">
+\[\lvert \mathcal L \psi - f \rvert^2 \to 0\]</div>
+<p>at each point.</p>
 <div class="section" id="references-and-notes">
 <h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
 <table class="docutils citation" frame="void" id="freitag2007" rules="none">
