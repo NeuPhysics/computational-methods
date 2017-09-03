@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Optimize &#8212; Computational Methods</title>
+    <title>Data Structure &#8212; Computational Methods</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="gene.html" />
-    <link rel="prev" title="Adams’ Method" href="adams.html" />
+    <link rel="next" title="Python Basics" href="../python/index.html" />
+    <link rel="prev" title="Numerical Basics" href="numerical-basics.html" />
 <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-66327435-2']);
@@ -63,7 +63,7 @@
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
-  <link rel="canonical" href="http://computational.neutrino.xyz/numerical-methods/optimize.html"/>
+  <link rel="canonical" href="http://computational.neutrino.xyz/preliminary/data-structure.html"/>
 
 
 
@@ -131,13 +131,13 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="gene.html" title="&lt;no title&gt;"
+          <a href="../python/index.html" title="Python Basics"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="adams.html" title="Adams’ Method"
+          <a href="numerical-basics.html" title="Numerical Basics"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Computational Methods</a> &#187;</li>
-          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Numerical Methods</a> &#187;</li> 
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Preliminary</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -146,11 +146,47 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="optimize">
-<h1>Optimize<a class="headerlink" href="#optimize" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="slsq">
-<h2>SLSQ<a class="headerlink" href="#slsq" title="Permalink to this headline">¶</a></h2>
-<p>SLSQ, sequential least squares, uses an iteration formula of the least squares to optimize a function.</p>
+  <div class="section" id="data-structure">
+<h1>Data Structure<a class="headerlink" href="#data-structure" title="Permalink to this headline">¶</a></h1>
+<p>Dealing with data structure is like dealing with your cloth. Some people simply randomly drop their cloth somewhere without thinking. But it takes time to retrieve a specific T-shirt. Some poeple spend some time fold and arrange their cloth. However that make it easy to find a specific T-shirt. It&#8217;s always a balance between the computation time and the coding time.</p>
+<div class="section" id="some-useful-data-structures">
+<h2>Some Useful Data Structures<a class="headerlink" href="#some-useful-data-structures" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="array">
+<h3>Array<a class="headerlink" href="#array" title="Permalink to this headline">¶</a></h3>
+<p>Array is accessed with indices.</p>
+</div>
+<div class="section" id="linked-list">
+<h3>Linked List<a class="headerlink" href="#linked-list" title="Permalink to this headline">¶</a></h3>
+<p>The first element is <strong>head</strong> while the last element is <strong>tail</strong>.</p>
+<p>Elements can be linked through two different ways, Signly Linked List or Doubly Linked List.</p>
+<p>Each node of the singly linked list is assigned two fields, the first field is the value of the node, which stores the information we need, the second field is the link to the next node.</p>
+<div class="figure align-center" id="id1">
+<img alt="../_images/Singly-linked-list.svg" src="../_images/Singly-linked-list.svg" /><p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Singly linked list illustration from <a class="reference external" href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia</a>.</span></p>
+</div>
+<p>Suppose we are solving the <a class="reference external" href="https://en.wikipedia.org/wiki/Josephus_problem">Josephus problem</a>. Linked list is good for deletion, however it is computation consuming when it comes to the counting. On the other hand, array structure is good for determining which on to delete, but the deletion involves rearrangement of index the array which is time consuming.</p>
+</div>
+<div class="section" id="stack">
+<h3>Stack<a class="headerlink" href="#stack" title="Permalink to this headline">¶</a></h3>
+<p>Stack is good for adding new items and removing the most recent-added item. (<a class="reference external" href="https://enkipro.com//insight/58f77be3d2d15f373906a905">on Enki</a>)</p>
+<p>Stack data structure is Last in First out, aka LIFO. There are only two ways to change the stack, which are adding item to the stack and removing the item at the top.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/Lifo_stack.png" src="../_images/Lifo_stack.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Stack from Wikipedia</span></p>
+</div>
+</div>
+<div class="section" id="queue">
+<h3>Queue<a class="headerlink" href="#queue" title="Permalink to this headline">¶</a></h3>
+<p>Queue is First in First out, aka FIFO. The name Queue explains itself quite well. In a line of queue, the first one in the line would be the first one served and removed from the queue. To add into the queue, we have the put the new guy at the end of the queue.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/Data_Queue.svg" src="../_images/Data_Queue.svg" /><p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Queue from Wikipedia</span></p>
+</div>
+</div>
+</div>
+<div class="section" id="references-and-notes">
+<h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>I learned some of these in enki app.</li>
+</ol>
 </div>
 </div>
 
@@ -177,18 +213,18 @@
 <h3>ToC</h3>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Preliminary</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="numerical-basics.html">Numerical Basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Data Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#some-useful-data-structures">Some Useful Data Structures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#references-and-notes">References and Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Numerical Methods</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="euler.html">Euler Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adams.html">Adams&#8217; Method</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Optimize</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#slsq">SLSQ</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../numerical-methods/index.html">Numerical Methods</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../finite-element-method/index.html">Finite Element Method</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../artificial-neural-network/index.html">Artificial Neural Networks</a></li>
@@ -232,7 +268,7 @@
 
 <!-- 多说评论框 start -->
 <!--
-  <div class="ds-thread" data-thread-key="" data-title="Optimize &#8212; Computational Methods" data-url=""></div>
+  <div class="ds-thread" data-thread-key="" data-title="Data Structure &#8212; Computational Methods" data-url=""></div>
 -->
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
@@ -277,7 +313,7 @@ var duoshuoQuery = {short_name:"sci2fi"};
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="../_sources/numerical-methods/optimize.rst.txt"
+      <a href="../_sources/preliminary/data-structure.rst.txt"
           rel="nofollow">Page source</a></li>
     </div>
 
