@@ -10,4 +10,4 @@ Some useful technologies or techniques for computations.
    :maxdepth: 2
 
    git.rst
-
+   gnuplot.rst

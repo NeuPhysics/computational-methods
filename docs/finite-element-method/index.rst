@@ -8,3 +8,4 @@ Finite Element Method
 
    pde-and-boundary-conditions.rst
    galerkin-method.rst
+   collocation-method.rst

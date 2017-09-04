@@ -1,4 +1,0 @@
-Introduction
-========================
-
-This project will demonstrate the power and misery of numerical method in neutrino physics.
