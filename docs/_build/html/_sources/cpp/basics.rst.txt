@@ -427,3 +427,15 @@ To access the heap, we use the new operator.
       void goldHeart() {
       // here is the definition of the function;
       }
+
+
+Memory
+---------------------
+
+Referring to :ref:`data-structure`, 
+
+Allocate memory for two dimensional array
+
+.. code-block:: c++
+
+   double (*a)[3] = new double[5000][3];
