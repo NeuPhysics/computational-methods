@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Euler Method &#8212; Computational Methods</title>
+    <title>Optimize &#8212; Computational Methods</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -34,8 +34,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Adams’ Method" href="adams.html" />
-    <link rel="prev" title="Numerical Methods" href="index.html" />
+    <link rel="next" title="Genetic Algorimth" href="gene.html" />
+    <link rel="prev" title="Partial Differential Equation" href="pde/index.html" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script type="text/x-mathjax-config">
@@ -216,10 +216,10 @@ TeX: {
 <li class="toctree-l2"><a class="reference internal" href="../cpp/manipulating-matrices.html">Manipulating Matrices in C++</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Numerical Methods</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Euler Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="adams.html">Adams&#8217; Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimize.html">Optimize</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Finite Difference Method</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ode/index.html">Ordinary Differential Equations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pde/index.html">Partial Differential Equation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Optimize</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gene.html">Genetic Algorimth</a></li>
 </ul>
 </li>
@@ -270,7 +270,10 @@ TeX: {
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Euler Method</a></li>
+<li><a class="reference internal" href="#">Optimize</a><ul>
+<li><a class="reference internal" href="#slsq">SLSQ</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -280,11 +283,11 @@ TeX: {
               
                 
   <li>
-    <a href="index.html" title="Previous Chapter: Numerical Methods"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Numerical Methods</span>
+    <a href="pde/index.html" title="Previous Chapter: Partial Differential Equation"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Partial Diffe...</span>
     </a>
   </li>
   <li>
-    <a href="adams.html" title="Next Chapter: Adams’ Method"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Adams’ Method &raquo;</span>
+    <a href="gene.html" title="Next Chapter: Genetic Algorimth"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Genetic Algorimth &raquo;</span>
     </a>
   </li>
               
@@ -312,18 +315,12 @@ TeX: {
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="euler-method">
-<h1>Euler Method<a class="headerlink" href="#euler-method" title="Permalink to this headline">¶</a></h1>
-<p id="index-0">For linear first ODE,</p>
-<div class="math">
-\[\frac{dy}{dx} = f(x, y),\]</div>
-<p>we can discretize the equation using a step size :math:<a href="#id1"><span class="problematic" id="id2">`</span></a>delta x cdot ` so that the differential equation becomes</p>
-<div class="math">
-\[\frac{y_{n+1} - y_n }{ \delta x } = f(x_n, y_n),\]</div>
-<p>which is also written as</p>
-<div class="math" id="equation-euler-method-discretized-form-y-n-plus-1">
-<span class="eqno">(1)<a class="headerlink" href="#equation-euler-method-discretized-form-y-n-plus-1" title="Permalink to this equation">¶</a></span>\[y_{n+1} = y_n + \delta x \cdot  f(x_n, y_n).\]</div>
-<p>Generally speaking, a simple iteraction will do the work.</p>
+  <div class="section" id="optimize">
+<h1>Optimize<a class="headerlink" href="#optimize" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="slsq">
+<h2>SLSQ<a class="headerlink" href="#slsq" title="Permalink to this headline">¶</a></h2>
+<p>SLSQ, sequential least squares, uses an iteration formula of the least squares to optimize a function.</p>
+</div>
 </div>
 
 
@@ -390,7 +387,7 @@ TeX: {
         <a href="/genindex.html">Index</a>
      </span> |
        <span><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
-       <a href="../_sources/numerical-methods/euler.rst.txt"
+       <a href="../_sources/finite-difference/optimize.rst.txt"
       rel="nofollow">Page Source</a>
       </span>
 

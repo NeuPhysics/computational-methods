@@ -21,7 +21,7 @@ Here is an index: `genindex.html <genindex.html>`_ .
     python/index.rst
     scipy/index.rst
     cpp/index.rst
-    numerical-methods/index.rst
+    finite-difference/index.rst
     integral/index.rst
     finite-element-method/index.rst
     neutrino-oscillations/index.rst
