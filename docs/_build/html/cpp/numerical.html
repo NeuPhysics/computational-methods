@@ -272,6 +272,7 @@ TeX: {
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Numerical</a><ul>
+<li><a class="reference internal" href="#modularize">Modularize</a></li>
 <li><a class="reference internal" href="#speed">Speed</a></li>
 </ul>
 </li>
@@ -318,10 +319,19 @@ TeX: {
       
   <div class="section" id="numerical">
 <h1>Numerical<a class="headerlink" href="#numerical" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="modularize">
+<h2>Modularize<a class="headerlink" href="#modularize" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Seperate physics from numerical stuff.</li>
+</ol>
+</div>
 <div class="section" id="speed">
 <h2>Speed<a class="headerlink" href="#speed" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><cite>vectors</cite> are convinient but slow. <a class="reference external" href="http://en.cppreference.com/w/cpp/container/vector">Ref</a></li>
+<li>Do not copy arrays if not necessary. The example would be for a function return. Most of the times, we can pass pointer of array to the function and update the array itself without copying anything and no return is needed at all.</li>
+<li>inline function.</li>
+<li>Use <cite>namespace</cite> instead of class if no data structure is stored in it.</li>
 </ol>
 </div>
 </div>

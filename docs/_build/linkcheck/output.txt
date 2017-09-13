@@ -1,0 +1,7 @@
+artificial-neural-network/ann.rst:50: [broken] http://deeplearning.cs.cmu.edu/notes/Sonia_Hornik.pdf: 404 Client Error: Not Found for url: http://deeplearning.cs.cmu.edu/notes/Sonia_Hornik.pdf
+artificial-neural-network/ann.rst:125: [broken] https://en.wikipedia.org/wiki/Radial_basis_function#/media/File:Unnormalized_radial_basis_functions.svg: Anchor '/media/File:Unnormalized_radial_basis_functions.svg' not found
+artificial-neural-network/ann.rst:137: [broken] http://www.cscjournals.org/manuscript/Journals/IJAE/volume1/Issue4/IJAE-26.pdf: 404 Client Error: Not Found for url: http://www.cscjournals.org/manuscript/Journals/IJAE/volume1/Issue4/IJAE-26.pdf
+index.rst:23: [local] genindex.html
+index.rst:12: [redirected permanently] http://creativecommons.org/licenses/by-nc-sa/3.0/us/ to https://creativecommons.org/licenses/by-nc-sa/3.0/us/
+references/index.rst:42: [broken] https://code.sololearn.com/#cpp: Anchor 'cpp' not found
+references/index.rst:42: [broken] https://code.sololearn.com/#cpp: Anchor 'cpp' not found

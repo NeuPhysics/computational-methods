@@ -432,7 +432,7 @@ To access the heap, we use the new operator.
 Memory
 ---------------------
 
-Referring to :ref:`data-structure`, 
+Referring to :ref:`data-structure`,
 
 Allocate memory for two dimensional array
 
