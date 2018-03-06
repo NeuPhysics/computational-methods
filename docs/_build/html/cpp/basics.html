@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>C++ Basics &#8212; Computational Methods</title>
-    
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.3.4/readable/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -27,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
@@ -167,7 +163,7 @@ TeX: {
 
  
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-inverse navbar-default ">
     <div class="container">
@@ -332,7 +328,7 @@ TeX: {
 <h2>Concepts<a class="headerlink" href="#concepts" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Namespace</li>
-<li>Operators: assignment operators (=,+=,-=,*=,/=,%=), increment/decrement operator (++x,x++,&#8211;x,x&#8211;), relational operators (&gt;,&lt;,&gt;=,&lt;=,==,!=), logicl operators (&amp;&amp;,||,!), left shift (&lt;&lt;), extration operator (&gt;&gt;, or right shift), understand the operator precedence</li>
+<li>Operators: assignment operators (=,+=,-=,*=,/=,%=), increment/decrement operator (++x,x++,–x,x–), relational operators (&gt;,&lt;,&gt;=,&lt;=,==,!=), logicl operators (&amp;&amp;,||,!), left shift (&lt;&lt;), extration operator (&gt;&gt;, or right shift), understand the operator precedence</li>
 <li>Variables: variable name starts with underscore or latin letters, Pascal case (PascalCase), Camel case (pascalCase)</li>
 <li>if/else and Loops: if (condition is true ){ then something }</li>
 <li>Data Types: string (double quote), character (char, 1 byte ASCII character, using single quote), float (4 bytes, always signed), double (8 bytes, always signed), long double (8 or 16 bytes, always signed), singed or unsigned short or long int (signed long int, unsigned int)</li>
@@ -454,7 +450,7 @@ TeX: {
 </div>
 <div class="note admonition">
 <p class="first admonition-title">Passing Arguments to Function by Value or Reference</p>
-<p>Passing by value is what we usally do. The function essentially copies the value of the parameters. Thus any change of the parameters inside function doesn&#8217;t change the original passed variables.</p>
+<p>Passing by value is what we usally do. The function essentially copies the value of the parameters. Thus any change of the parameters inside function doesn’t change the original passed variables.</p>
 <p>Passing by reference is very different. It passes the pointer to the function and thus any change to the parameters will change the originally defiend variables.</p>
 <div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
 <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -644,7 +640,7 @@ TeX: {
 <span class="c1">// [] means delete the array</span>
 </pre></div>
 </div>
-<p>Functions should be declared in the file that calls the function if it&#8217;s defined in another file. The declaration of function can be seperate from the definition of the function.</p>
+<p>Functions should be declared in the file that calls the function if it’s defined in another file. The declaration of function can be seperate from the definition of the function.</p>
 <div class="last highlight-c++"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">goldHeart</span><span class="p">();</span>
 <span class="c1">// this is the declaration of the function; notice we have not defined it</span>
 

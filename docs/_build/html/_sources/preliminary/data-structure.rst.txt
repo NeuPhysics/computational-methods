@@ -7,6 +7,23 @@ Data Structure
 Dealing with data structure is like dealing with your cloth. Some people simply randomly drop their cloth somewhere without thinking. But it takes time to retrieve a specific T-shirt. Some poeple spend some time fold and arrange their cloth. However that make it easy to find a specific T-shirt. It's always a balance between the computation time and the coding time.
 
 
+Keywords
+-----------------------------
+
+This is meant for some kind of flash card keywords. I used to remind myself of the important concepts.
+
+Binary Tree
+~~~~~~~~~~~~~~~~~~~~~~~
+
+0. Tree; Binary tree
+1. Traverse a tree:
+
+   a. Pre-order traversal
+   b. In-orer traversal
+   c. Post-order traversal
+
+2. 
+
 
 
 Some Useful Data Structures

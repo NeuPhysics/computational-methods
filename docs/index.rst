@@ -18,6 +18,7 @@ Here is an index: `genindex.html <genindex.html>`_ .
 
     intro.rst
     preliminary/index.rst
+    network/index.rst
     python/index.rst
     scipy/index.rst
     cpp/index.rst

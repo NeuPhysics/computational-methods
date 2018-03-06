@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Artificial Neural Networks Basics &#8212; Computational Methods</title>
-    
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.3.4/readable/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -27,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
@@ -167,7 +163,7 @@ TeX: {
 
  
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-inverse navbar-default ">
     <div class="container">
@@ -213,6 +209,7 @@ TeX: {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/basics.html">C++ Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cpp/numerical.html">Numerical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/manipulating-matrices.html">Manipulating Matrices in C++</a></li>
 </ul>
 </li>
@@ -333,8 +330,8 @@ TeX: {
 <p>However the convergence slows done if we have a lot of hidden units. There is a balance between accuracy and convergence rate. More hidden units means slow convergence but more accuracy.</p>
 <p>Here is a quick review of the history of this topic.</p>
 <div class="note admonition">
-<p class="first admonition-title">Kolmogorov&#8217;s Theorem</p>
-<p>Kolmogorov&#8217;s theorem shows that one can use finite number of carefully chosen continuous functions to exactly mix up by sums and multiplication with weights to a continuous multivariable fnction on a copact set.</p>
+<p class="first admonition-title">Kolmogorov’s Theorem</p>
+<p>Kolmogorov’s theorem shows that one can use finite number of carefully chosen continuous functions to exactly mix up by sums and multiplication with weights to a continuous multivariable fnction on a copact set.</p>
 <p class="last"><a class="reference external" href="http://neuron.eng.wayne.edu/tarek/MITbook/chap2/2_3.html">Here is the exact math.</a></p>
 </div>
 <ol class="arabic simple">
@@ -347,7 +344,7 @@ TeX: {
 <ol class="arabic simple" start="2">
 <li>Hornik 1989</li>
 </ol>
-<p>&#8220;Single hidden layer feedforward networks can approximate any measurable functions arbitrarily well regardless of the activation function, the dimension of the input and the input space environment.&#8221;
+<p>“Single hidden layer feedforward networks can approximate any measurable functions arbitrarily well regardless of the activation function, the dimension of the input and the input space environment.”
 (<a class="reference external" href="http://deeplearning.cs.cmu.edu/notes/Sonia_Hornik.pdf">http://deeplearning.cs.cmu.edu/notes/Sonia_Hornik.pdf</a>)</p>
 <div class="note admonition">
 <p class="first admonition-title">Dense</p>
@@ -360,8 +357,8 @@ TeX: {
 <div class="section" id="refs">
 <h3>Refs<a class="headerlink" href="#refs" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Kolmogorov, A. N. (1957). &#8220;On the Representation of Continuous Functions of Several Variables by Superposition of Continuous Functions of one Variable and Addition,&#8221; Doklady Akademii. Nauk USSR, 114, 679-681.</li>
-<li>Maxwell Stinchcombe, Halbert White (1989). <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0893608089900208">&#8220;Multilayer feedforward networks are universal approximators&#8221;</a> . Neural Networks, Vol 2, 5, 359-366.</li>
+<li>Kolmogorov, A. N. (1957). “On the Representation of Continuous Functions of Several Variables by Superposition of Continuous Functions of one Variable and Addition,” Doklady Akademii. Nauk USSR, 114, 679-681.</li>
+<li>Maxwell Stinchcombe, Halbert White (1989). <a class="reference external" href="http://www.sciencedirect.com/science/article/pii/0893608089900208">“Multilayer feedforward networks are universal approximators”</a> . Neural Networks, Vol 2, 5, 359-366.</li>
 </ol>
 </div>
 </div>

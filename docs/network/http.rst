@@ -1,0 +1,64 @@
+HTTP
+==================
+
+
+1. Hyper Text Transfer Protocal: deliver hyper text from server to local browser etc.
+2. Based on TCP/IP
+3. Current version:  HTTP/2
+4. Server  - Client
+5. Client can request through GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH.
+6. Transfer anything defined by Content-Type
+7. Connectionless Protocol: doesn't maintain the connection all the time
+8. Stateless protocal: `A very nice explanation <https://www.zhihu.com/question/23202402/answer/300614865>`_
+
+
+
+About URL
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Uniform Resource Locator
+2. http://abc.com:8000/folder/file.html#title1location?param1=123&param2=234
+9. No limits on length of URL by HTTP itself. However, some servers or clients do set limits.
+
+Difference between URI and URL and URN: `The Difference Between URLs and URIs <https://danielmiessler.com/study/url-uri/>`_ checkout the Venn diagram.
+
+.. figure:: assets/URI-vs.-URL.png
+   :align: center
+
+   From `The Difference Between URLs and URIs <https://danielmiessler.com/study/url-uri/>`_
+
+
+How HTTP Works
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+HTTP Request: use Chrome Dev Tool -> Network to find out the requests, including GET and Response.
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 1em; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/po3zYOe00O4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+
+How to Request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: text
+
+   GET  请求指定的页面信息，并返回实体主体。
+   HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头
+   POST     向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。
+   PUT  从客户端向服务器传送的数据取代指定的文档的内容。
+   DELETE   请求服务器删除指定的页面。
+   CONNECT  HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
+   OPTIONS  允许客户端查看服务器的性能。
+   TRACE    回显服务器收到的请求，主要用于测试或诊断。
+
+   作者：RaphetS
+   链接：https://www.jianshu.com/p/80e25cb1d81a
+   來源：简书
+   著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+GET will attach data on the URL, while POST will attach data in the package. Thus POST is safer.

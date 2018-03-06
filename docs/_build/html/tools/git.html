@@ -1,19 +1,15 @@
 <!DOCTYPE html>
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
     <title>Git &#8212; Computational Methods</title>
-    
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootswatch-3.3.4/readable/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
@@ -27,7 +23,7 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
@@ -167,7 +163,7 @@ TeX: {
 
  
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-inverse navbar-default ">
     <div class="container">
@@ -213,6 +209,7 @@ TeX: {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../cpp/index.html">The C++ Language</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/basics.html">C++ Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cpp/numerical.html">Numerical</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cpp/manipulating-matrices.html">Manipulating Matrices in C++</a></li>
 </ul>
 </li>
@@ -330,7 +327,7 @@ TeX: {
 <h1>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="using-git-only-the-basics">
 <h2>Using Git (Only The Basics)<a class="headerlink" href="#using-git-only-the-basics" title="Permalink to this headline">¶</a></h2>
-<p>Thare are huge ammounts of git commands! What if I don&#8217;t want to use any of these?</p>
+<p>Thare are huge ammounts of git commands! What if I don’t want to use any of these?</p>
 <ul class="simple">
 <li><a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a></li>
 <li><a class="reference external" href="https://www.gitkraken.com/">GitKraken</a></li>
@@ -422,7 +419,7 @@ and you will see.</p>
 <li><p class="first">One your local machine, using <code class="code docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">ssh://&lt;yourusername&gt;&#64;&lt;your.server.name&gt;/&lt;path</span> <span class="pre">to</span> <span class="pre">repo&gt;</span></code> will clone the empty repo to your local machine.</p>
 </li>
 </ol>
-<p>Here I&#8217;ll use my own machines as an example. After setting up the git server, I create initialized empty git repo on this server, under path <code class="code docutils literal"><span class="pre">/home/neutrino/gitserver/</span></code> (where neutrino is my user name on this ubuntu machine)</p>
+<p>Here I’ll use my own machines as an example. After setting up the git server, I create initialized empty git repo on this server, under path <code class="code docutils literal"><span class="pre">/home/neutrino/gitserver/</span></code> (where neutrino is my user name on this ubuntu machine)</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">init</span> <span class="o">--</span><span class="n">bare</span> <span class="n">codebase</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
