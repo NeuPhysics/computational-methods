@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>HTTP &#8212; Computational Methods</title>
+    <title>Basics of Database &#8212; Computational Methods</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
@@ -30,8 +30,6 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python Basics" href="../python/index.html" />
-    <link rel="prev" title="Network" href="index.html" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script type="text/x-mathjax-config">
@@ -191,15 +189,15 @@ TeX: {
      href="../index.html">Chapters <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul class="current">
+      aria-labelledby="dLabelGlobalToc"><ul>
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../preliminary/numerical-basics.html">Numerical Basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../preliminary/data-structure.html">Data Structure</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Network</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">HTTP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/index.html">Network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/http.html">HTTP</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a><ul>
@@ -271,10 +269,14 @@ TeX: {
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">HTTP</a><ul>
-<li><a class="reference internal" href="#about-url">About URL</a></li>
-<li><a class="reference internal" href="#how-http-works">How HTTP Works</a></li>
-<li><a class="reference internal" href="#how-to-request">How to Request</a></li>
+<li><a class="reference internal" href="#">Basics of Database</a><ul>
+<li><a class="reference internal" href="#relations">Relations</a></li>
+<li><a class="reference internal" href="#query">Query</a></li>
+<li><a class="reference internal" href="#sql">SQL</a></li>
+<li><a class="reference internal" href="#olap">OLAP</a></li>
+<li><a class="reference internal" href="#relational-calculus">Relational Calculus</a></li>
+<li><a class="reference internal" href="#database-key">Database Key</a></li>
+<li><a class="reference internal" href="#normalization">Normalization</a></li>
 </ul>
 </li>
 </ul>
@@ -285,14 +287,6 @@ TeX: {
             
               
                 
-  <li>
-    <a href="index.html" title="Previous Chapter: Network"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Network</span>
-    </a>
-  </li>
-  <li>
-    <a href="../python/index.html" title="Next Chapter: Python Basics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Python Basics &raquo;</span>
-    </a>
-  </li>
               
             
             
@@ -318,54 +312,111 @@ TeX: {
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="http">
-<h1>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="basics-of-database">
+<h1>Basics of Database<a class="headerlink" href="#basics-of-database" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="relations">
+<h2>Relations<a class="headerlink" href="#relations" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Hyper Text Transfer Protocal: deliver hyper text from server to local browser etc.</li>
-<li>Based on TCP/IP</li>
-<li>Current version:  HTTP/2</li>
-<li>Server  - Client</li>
-<li>Client can request through GET, HEAD, POST, PUT, DELETE, TRACE, OPTIONS, CONNECT, PATCH.</li>
-<li>Transfer anything defined by Content-Type</li>
-<li>Connectionless Protocol: doesn’t maintain the connection all the time</li>
-<li>Stateless protocal: <a class="reference external" href="https://www.zhihu.com/question/23202402/answer/300614865">A very nice explanation</a></li>
+<li>Union: <span class="math">\(A\cup B\)</span></li>
+<li>Intersection: <span class="math">\(A\cap B\)</span></li>
+<li><span class="math">\(A - B\)</span></li>
+<li>Cartesian Product: <span class="math">\(A \times B\)</span></li>
 </ol>
-<div class="section" id="about-url">
-<h2>About URL<a class="headerlink" href="#about-url" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="query">
+<h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Uniform Resource Locator</li>
+<li>Union in database: will combine the data with matching common columns.</li>
+<li>NaturalJoin and EquiJoin:</li>
+<li>Procedural language: derived from structural programming, focuses on breaking task into variables, data structures, and subroutines.</li>
 </ol>
-<p>2. <a class="reference external" href="http://abc.com:8000/folder/file.html#title1location">http://abc.com:8000/folder/file.html#title1location</a>?param1=123&amp;param2=234
-9. No limits on length of URL by HTTP itself. However, some servers or clients do set limits.</p>
-<p>Difference between URI and URL and URN: <a class="reference external" href="https://danielmiessler.com/study/url-uri/">The Difference Between URLs and URIs</a> checkout the Venn diagram.</p>
-<div class="figure align-center">
-<img alt="../_images/URI-vs.-URL.png" src="../_images/URI-vs.-URL.png" />
 </div>
+<div class="section" id="sql">
+<h2>SQL<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h2>
+<div class="warning admonition">
+<p class="first admonition-title">Nice Article about Index</p>
+<ol class="last arabic simple">
+<li><a class="reference external" href="https://www.red-gate.com/simple-talk/sql/learn-sql-server/sql-server-index-basics/">https://www.red-gate.com/simple-talk/sql/learn-sql-server/sql-server-index-basics/</a></li>
+</ol>
 </div>
-<div class="section" id="how-http-works">
-<h2>How HTTP Works<a class="headerlink" href="#how-http-works" title="Permalink to this headline">¶</a></h2>
-<p>HTTP Request: use Chrome Dev Tool -&gt; Network to find out the requests, including GET and Response.</p>
-<div style="position: relative; padding-bottom: 1em; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/po3zYOe00O4" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div></div>
-<div class="section" id="how-to-request">
-<h2>How to Request<a class="headerlink" href="#how-to-request" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-text"><div class="highlight"><pre><span></span>GET  请求指定的页面信息，并返回实体主体。
-HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头
-POST     向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。
-PUT  从客户端向服务器传送的数据取代指定的文档的内容。
-DELETE   请求服务器删除指定的页面。
-CONNECT  HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。
-OPTIONS  允许客户端查看服务器的性能。
-TRACE    回显服务器收到的请求，主要用于测试或诊断。
-
-作者：RaphetS
-链接：https://www.jianshu.com/p/80e25cb1d81a
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+<ol class="arabic simple">
+<li>B-tree: nodes has subnodes; Read wikipedia for more.</li>
+<li>Index architectures:
+1. Clustered indices: sort data based on the key column, thus no row locator is needed.
+2. Non-clustered indices: store both column and row locator so that sorting is not needed.</li>
+<li>“If the table has a clustered index, or the index is on an indexed view, the row locator is the clustered index key for the row.” from HackerRank.</li>
+<li>Leaf vs Non-leaf:
+1. Leaf level pages (nodes): the end of the search through B-tree;
+2. Non-leaf pages (nodes): root and intermediate</li>
+<li>Fill factor: the leaf level pages are not always filled with data. You can specify some pages to be reserved for future growth of data. The value is from 1 to 100 percent. Server side default is usually 0 which means that all leaf pages are filled.</li>
+<li>Composite index:</li>
+</ol>
+</div>
+<div class="section" id="olap">
+<h2>OLAP<a class="headerlink" href="#olap" title="Permalink to this headline">¶</a></h2>
+<div class="note admonition">
+<p class="first admonition-title">OLAP Explained</p>
+<p class="last"><a class="reference external" href="https://apandre.wordpress.com/data/datacube/">OLAP Cubes</a> explained the operations such as SLICE (slice by one dimensions so that we get a N-1 subset of the data), DICE (slice more than two dimensions), DRILL DOWN/UP (navigate among levels of data), ROLL-UP (aggrete, consolidate, involves all the data relations for one or more dimensions), PIVOT (rotation).</p>
+</div>
+<ol class="arabic simple">
+<li>OLAP: Online analytical processing, with a core of OLAP cube (multidimensional cube, hypercube).</li>
+<li>Aggregations: speed up time</li>
+</ol>
+<p>3. Both star schema and snowflake schema are the souce of the
+cube metadata for OLAP.
+4. About how those operations works, please find the quiz at <a class="reference external" href="https://www.hackerrank.com/challenges/olap-operation-types-2/forum">OLAP Operation Types &#64; HackerRank</a></p>
+<blockquote>
+<div><p>An example is</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>--Aggregation number of rows
+n1*n2*n3,
+--Rollup number of rows
+n1*n2*n3+n1+n1*n2+1
+--Cube number of rows
+n1*n2*n3+n1*n2+n2*n3+n1*n3+n1+n2+n3+1
 </pre></div>
 </div>
-<p>GET will attach data on the URL, while POST will attach data in the package. Thus POST is safer.</p>
+</div></blockquote>
+</div>
+<div class="section" id="relational-calculus">
+<h2>Relational Calculus<a class="headerlink" href="#relational-calculus" title="Permalink to this headline">¶</a></h2>
+<div class="note admonition">
+<p class="first admonition-title">Operators</p>
+<p>∀ = forall (<a class="reference external" href="https://en.wikipedia.org/wiki/Turned_A">https://en.wikipedia.org/wiki/Turned_A</a>)
+| = such that (<a class="reference external" href="https://en.wikipedia.org/wiki/Set-builder_notation">https://en.wikipedia.org/wiki/Set-builder_notation</a>)
+∧ = logical conjunction (and)(<a class="reference external" href="https://en.wikipedia.org/wiki/List_of_logic_symbols">https://en.wikipedia.org/wiki/List_of_logic_symbols</a>)
+→ = is a function</p>
+<p class="last">Stole from HackerRank: <a class="reference external" href="https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506">https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506</a></p>
+</div>
+</div>
+<div class="section" id="database-key">
+<h2>Database Key<a class="headerlink" href="#database-key" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Primary key: unique values for each row of data; can not contain null values.</li>
+</ol>
+</div>
+<div class="section" id="normalization">
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">NF: Normal Form,e.g., 1NF Rules, 2NF Rules, 3NF Rules. Refer to <a class="reference external" href="https://www.guru99.com/database-normalization.html">this article</a>. BCNF (Boyce–Codd normal form) please refer to wiki. 4NF is also explained well in <a class="reference external" href="https://en.wikipedia.org/wiki/Fourth_normal_form">wiki</a>.</p>
+</li>
+<li><p class="first">Taken from HackerRank comments: <a class="reference external" href="https://www.hackerrank.com/challenges/database-normalization-1-1nf/forum">https://www.hackerrank.com/challenges/database-normalization-1-1nf/forum</a></p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>1NF = Single value on each field
+
+2NF = 1NF + No non-prime attribute is dependent on the proper subset of any candidate key of table.
+
+3NF = 2NF + Transitive functional dependency of non-prime attribute on any super key should be removed.
+
+BCNF = A 3NF table that does not have multiple overlapping candidate keys is guaranteed to be in BCNF
+</pre></div>
+</div>
+</li>
+<li><p class="first"><a class="reference external" href="https://en.wikipedia.org/wiki/Superkey">Superkey</a>:  set of attributes within a table whose values can be used to uniquely identify a tuple</p>
+</li>
+<li><p class="first">Candidate key: column(s) to identify unique records</p>
+</li>
+<li><p class="first">Nonkey Dependency: simply as the name indicates</p>
+</li>
+</ol>
 </div>
 </div>
 
@@ -433,7 +484,7 @@ TRACE    回显服务器收到的请求，主要用于测试或诊断。
         <a href="/genindex.html">Index</a>
      </span> |
        <span><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
-       <a href="../_sources/network/http.rst.txt"
+       <a href="../_sources/database/basics.rst.txt"
       rel="nofollow">Page Source</a>
       </span>
 
