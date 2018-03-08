@@ -62,9 +62,9 @@ OLAP
 
 
 1. OLAP: Online analytical processing, with a core of OLAP cube (multidimensional cube, hypercube).
-2. Aggregations: speed up time
-3. Both star schema and snowflake schema are the souce of the
-cube metadata for OLAP.
+2. Aggregations: speed up time.
+3. Both star schema and snowflake schema are the souce of the cube metadata for OLAP.
+
 4. About how those operations works, please find the quiz at `OLAP Operation Types @ HackerRank <https://www.hackerrank.com/challenges/olap-operation-types-2/forum>`_
 
    An example is
@@ -87,12 +87,12 @@ Relational Calculus
 .. admonition:: Operators
    :class: note
 
-   ∀ = forall (https://en.wikipedia.org/wiki/Turned_A)
-   | = such that (https://en.wikipedia.org/wiki/Set-builder_notation)
-   ∧ = logical conjunction (and)(https://en.wikipedia.org/wiki/List_of_logic_symbols)
-   → = is a function
+   1. ∀ = forall : https://en.wikipedia.org/wiki/Turned_A
+   2. | = such that : https://en.wikipedia.org/wiki/Set-builder_notation
+   3. ∧ = logical conjunction (and) : https://en.wikipedia.org/wiki/List_of_logic_symbols
+   4. → = is a function
 
-   Stole from HackerRank: https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506
+   Stolen from HackerRank: https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506
 
 
 Database Key

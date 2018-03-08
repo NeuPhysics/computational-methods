@@ -30,6 +30,8 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Python Basics" href="../python/index.html" />
+    <link rel="prev" title="Database" href="index.html" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script type="text/x-mathjax-config">
@@ -189,7 +191,7 @@ TeX: {
      href="../index.html">Chapters <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
-      aria-labelledby="dLabelGlobalToc"><ul>
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../preliminary/numerical-basics.html">Numerical Basics</a></li>
@@ -198,6 +200,10 @@ TeX: {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../network/index.html">Network</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../network/http.html">HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Database</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Basics of Database</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Basics</a><ul>
@@ -287,6 +293,14 @@ TeX: {
             
               
                 
+  <li>
+    <a href="index.html" title="Previous Chapter: Database"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Database</span>
+    </a>
+  </li>
+  <li>
+    <a href="../python/index.html" title="Next Chapter: Python Basics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Python Basics &raquo;</span>
+    </a>
+  </li>
               
             
             
@@ -358,15 +372,15 @@ TeX: {
 <p class="first admonition-title">OLAP Explained</p>
 <p class="last"><a class="reference external" href="https://apandre.wordpress.com/data/datacube/">OLAP Cubes</a> explained the operations such as SLICE (slice by one dimensions so that we get a N-1 subset of the data), DICE (slice more than two dimensions), DRILL DOWN/UP (navigate among levels of data), ROLL-UP (aggrete, consolidate, involves all the data relations for one or more dimensions), PIVOT (rotation).</p>
 </div>
-<ol class="arabic simple">
-<li>OLAP: Online analytical processing, with a core of OLAP cube (multidimensional cube, hypercube).</li>
-<li>Aggregations: speed up time</li>
-</ol>
-<p>3. Both star schema and snowflake schema are the souce of the
-cube metadata for OLAP.
-4. About how those operations works, please find the quiz at <a class="reference external" href="https://www.hackerrank.com/challenges/olap-operation-types-2/forum">OLAP Operation Types &#64; HackerRank</a></p>
-<blockquote>
-<div><p>An example is</p>
+<ol class="arabic">
+<li><p class="first">OLAP: Online analytical processing, with a core of OLAP cube (multidimensional cube, hypercube).</p>
+</li>
+<li><p class="first">Aggregations: speed up time.</p>
+</li>
+<li><p class="first">Both star schema and snowflake schema are the souce of the cube metadata for OLAP.</p>
+</li>
+<li><p class="first">About how those operations works, please find the quiz at <a class="reference external" href="https://www.hackerrank.com/challenges/olap-operation-types-2/forum">OLAP Operation Types &#64; HackerRank</a></p>
+<p>An example is</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>--Aggregation number of rows
 n1*n2*n3,
 --Rollup number of rows
@@ -375,17 +389,26 @@ n1*n2*n3+n1+n1*n2+1
 n1*n2*n3+n1*n2+n2*n3+n1*n3+n1+n2+n3+1
 </pre></div>
 </div>
-</div></blockquote>
+</li>
+</ol>
 </div>
 <div class="section" id="relational-calculus">
 <h2>Relational Calculus<a class="headerlink" href="#relational-calculus" title="Permalink to this headline">¶</a></h2>
 <div class="note admonition">
 <p class="first admonition-title">Operators</p>
-<p>∀ = forall (<a class="reference external" href="https://en.wikipedia.org/wiki/Turned_A">https://en.wikipedia.org/wiki/Turned_A</a>)
-| = such that (<a class="reference external" href="https://en.wikipedia.org/wiki/Set-builder_notation">https://en.wikipedia.org/wiki/Set-builder_notation</a>)
-∧ = logical conjunction (and)(<a class="reference external" href="https://en.wikipedia.org/wiki/List_of_logic_symbols">https://en.wikipedia.org/wiki/List_of_logic_symbols</a>)
-→ = is a function</p>
-<p class="last">Stole from HackerRank: <a class="reference external" href="https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506">https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506</a></p>
+<ol class="arabic">
+<li><p class="first">∀ = forall : <a class="reference external" href="https://en.wikipedia.org/wiki/Turned_A">https://en.wikipedia.org/wiki/Turned_A</a></p>
+</li>
+<li><div class="first line-block">
+<div class="line">= such that : <a class="reference external" href="https://en.wikipedia.org/wiki/Set-builder_notation">https://en.wikipedia.org/wiki/Set-builder_notation</a></div>
+</div>
+</li>
+<li><p class="first">∧ = logical conjunction (and) : <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_logic_symbols">https://en.wikipedia.org/wiki/List_of_logic_symbols</a></p>
+</li>
+<li><p class="first">→ = is a function</p>
+</li>
+</ol>
+<p class="last">Stolen from HackerRank: <a class="reference external" href="https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506">https://www.hackerrank.com/challenges/databases-relational-calculus/forum/comments/325506</a></p>
 </div>
 </div>
 <div class="section" id="database-key">

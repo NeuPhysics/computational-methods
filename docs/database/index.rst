@@ -5,3 +5,4 @@ Database
    :maxdepth: 2
 
    basics.rst
+   mapreduce.rst
