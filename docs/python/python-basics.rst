@@ -114,3 +114,37 @@ Zen Code
 1. https://www.python.org/doc/essays/list2str/
 
 2. Try `filter()`, `map()`, `reduce()`.
+
+
+Super function
+--------------------
+
+.. admonition:: References
+   :class: note
+
+   http://www.pythonforbeginners.com/super/working-python-super-function
+
+In python you can access parent class properties easily.
+
+.. code-block:: python
+
+   class MyParentClass(object):
+      def __init__(self):
+         pass
+
+   class SubClass(MyParentClass):
+      def __init__(self):
+         MyParentClass.__init__(self)
+
+
+To access the sub class properties, we can use super function.
+
+.. code-block:: python
+
+   class MyParentClass():
+      def __init__(self):
+         pass
+
+   class SubClass(MyParentClass):
+      def __init__(self):
+         super()
