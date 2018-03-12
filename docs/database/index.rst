@@ -6,4 +6,5 @@ Database
 
    basics.rst
    mapreduce.rst
+   sql.rst
    mongodb.rst

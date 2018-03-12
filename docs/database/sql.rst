@@ -14,6 +14,7 @@ Basics and Background
 
 1. SQL: Structured Query Language
 2. Relational Database:
+
    1. usually in tables
    2. rows are called records
    3. columns are certain types of data. Data type of rows are specified:
@@ -23,6 +24,7 @@ Basics and Background
       4. REAL, real numbers
       5. NULL
       6. ...
+
 3. RDBMS: Relational Database Management System, most RDBMS use SQL as the query language. SQLite is one of the RDBMS.
    1. SQLite: open source and minimal
    2. MySQL: powerful and popular, also open source, controlled by Oracle, not really scalable.
@@ -87,17 +89,7 @@ Statements for Manipulation
       INSERT INTO table_name (column_1, column_2, column_3)
       VALUES (some_value_1, some_value_2, some_value_3);
 
-3. Select from table; select returns *result set* which is a new table.
-
-   .. code-block:: SQL
-
-      -- Select out everything from table
-      SELECT * FROM table_name;
-      -- Select out the values of a specific column
-      SELECT column_1 FROM table_name;
-
-
-4. Update some values
+3. Update some values
 
    .. code-block:: SQL
 
@@ -108,7 +100,7 @@ Statements for Manipulation
       -- specify row location
       WHERE column_2 = some_specific_value_to_locate_the_row;
 
-5. Add new columns
+4. Add new columns
 
    .. code-block:: SQL
 
@@ -117,7 +109,7 @@ Statements for Manipulation
       -- add column and specify data type, here I use TEXT
       ADD COLUMN column_4 TEXT
 
-6. Delete rows
+5. Delete rows
 
    .. code-block:: SQL
 
@@ -130,6 +122,242 @@ Statements for Manipulation
 
 Statements for Queries
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1. Select from table; select returns *result set* which is a new table.
+
+   .. code-block:: SQL
+
+      -- Select out everything from table
+      SELECT * FROM table_name;
+      -- Select out the values of a specific column
+      SELECT column_1 FROM table_name;
+
+2. Slect specific columns
+
+   .. code-block:: SQL
+      SELECT column_1, column_2
+      FROM table_name;
+
+3. `AS` keyword: allows you to select the column and return it as the specified new name of the column; the database is NOT modified.
+
+   .. code-block:: SQL
+
+      SELECT column_1 AS 'A NEW NAME'
+      FROM table_name;
+
+
+4. Select and show only the distinct values of the column
+
+   .. code-block:: SQL
+
+      SELECT DISTINCT column_1
+      FROM table_name;
+
+5. `WHERE` key: using operators such as `=, !=, >, <, >=, <=` to filter results
+
+   .. code-block:: SQL
+
+      SELECT * FROM table_name
+      WHERE column_1 = 0;
+
+6. `LIKE` key: patern specified like `AA_B` where `_` is for a single character.
+
+   .. code-block:: SQL
+
+      SELECT * FROM table_name
+      WHERE column_1 LIKE `AA_B`
+
+   Wildcards: `_`, `%` for 0 or more characters.
+
+7. `BETWEEN`, `AND`, `OR`:
+
+   .. code-block:: SQL
+
+      SELECT *
+      FROM movies
+      WHERE name BETWEEN 'D%' AND 'G%';
+
+
+8. `SORT BY`: Can be either `DESC` or `ASC` and goes after where
+
+   .. code-block:: SQL
+
+      SELECT * FROM movies
+      WHERE year > 2014
+      ORDER BY name DESC;
+
+9. `LIMIT`
+
+   .. code-block:: SQL
+
+      SELECT *
+      FROM movies
+      ORDER BY imdb_rating DESC
+      LIMIT 3;
+
+10. `CASE`:
+
+    .. code-block:: SQL
+
+       SELECT name,
+        CASE
+          WHEN genre = 'romance' THEN 'fun'
+          WHEN genre = 'comedy' THEN 'fun'
+          ELSE 'serious'
+        END
+       FROM movies;
+
+
+
+Aggregate
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1. `COUNT`:
+
+   .. code-block:: SQL
+
+      SELECT COUNT(*)
+      FROM tabe_name;
+
+2. `SUM`:
+
+   .. code-block:: SQL
+
+      SELECT SUM(column_1)
+      FROM table_name;
+
+3. `MAX` and `MIN`:
+
+   .. code-block:: SQL
+
+      SELECT MAX(column_1)
+      FROM table_name;
+
+4. `AVG`: average
+
+   .. code-block:: SQL
+
+      SELECT AVG(column_1)
+      FROM table_name;
+5. `ROUND`: round to specified decimals
+
+   .. code-block:: SQL
+
+      --round the price to integers
+      SELECT name, ROUND(price,0)
+      FROM fake_apps;
+
+      --round the price to integers
+      --even with other keys as arguments
+      SELECT name, ROUND(AVG(price),0)
+      FROM fake_apps;
+
+6. `GROUP BY`: group by column values
+
+
+   .. code-block:: SQL
+
+      SELECT price, COUNT(*)
+      FROM fake_apps
+      WHERE downloads > 20000
+      GROUP BY price;
+
+   or
+
+   .. code-block:: SQL
+
+      SELECT category, SUM(downloads)
+      FROM fake_apps
+      GROUP BY category;
+
+   References can be used in `GROUP BY`
+
+   .. code-block:: SQL
+
+      SELECT category, SUM(downloads)
+      FROM fake_apps
+      GROUP BY 1;
+      --1 here is identical to category
+
+
+7. `HAVING`: The problem with `WHERE` is that it goes before `GROUP BY`. What if we need to filter the groups?
+
+   .. code-block:: SQL
+
+      SELECT price, ROUND(AVG(downloads))
+      FROM fake_apps
+      GROUP BY price
+      HAVING COUNT(price) > 9;
+
+
+Multiple Tables
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **normalization** is explained in :ref:`db-normalization`.
+
+1. `JOIN`: Join tables with specified column
+
+   .. code-block:: SQL
+
+      SELECT *
+      FROM orders
+      JOIN subscriptions
+      ON orders.subscription_id = subscriptions.subscription_id
+      WHERE description = 'Fashion Magazine';
+
+2. Inner Join: only join the rows that have common values on the specified join columns.
+
+   .. code-block:: SQL
+
+      SELECT COUNT(*)
+      FROM newspaper;
+      --Output 60
+
+      SELECT COUNT(*)
+      FROM online;
+      --Output 65
+
+      SELECT COUNT(*)
+      FROM newspaper
+      JOIN online
+      ON online.id = newspaper.id;
+      --Output 50 <= 60 or 65
+
+3. Left Join: simply plug all the right table onto left tables, where the values of the specified column match. The number of rows will be the number of rows for the left table.
+
+   .. code-block:: SQL
+
+      SELECT *
+      FROM newspaper
+      LEFT JOIN online
+      ON newspaper.id=online.id
+      WHERE online.id IS NULL;
+
+4. Cross join: combine all the information
+
+
+   .. code-block:: SQL
+
+      SELECT month,
+      COUNT(*) as subscribers
+      FROM months
+      CROSS JOIN newspaper
+      WHERE months.month > newspaper.start_month AND months.month < newspaper.end_month
+      GROUP BY months.month;
+
+5. `UNION`: stack tables
+
+   .. code-block:: SQL
+
+      SELECT *
+      FROM newspaper
+      UNION
+      SELECT *
+      FROM online;
+
+6. `WITH`: create a result with alias
 
 
 

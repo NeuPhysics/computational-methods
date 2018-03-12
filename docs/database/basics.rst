@@ -5,7 +5,7 @@ Basics of Database
    :class: warning
 
    This is a set of **skeleton notes**.
-   
+
 
 Relations
 -------------------------
@@ -105,6 +105,8 @@ Database Key
 
 1. Primary key: unique values for each row of data; can not contain null values.
 
+
+.. _db-normalization:
 
 Normalization
 -------------------------
