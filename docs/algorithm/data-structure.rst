@@ -18,11 +18,10 @@ Binary Tree
 0. Tree; Binary tree
 1. Traverse a tree:
 
-   a. Pre-order traversal
-   b. In-orer traversal
-   c. Post-order traversal
-
-2. 
+   a. Pre-order traversal: parent->left->right
+   b. In-orer traversal: left->parent->right
+   c. Post-order traversal: left->right->parent
+   d. Level-order tranversal: top->bottom, by each level from left to right of the whole tree
 
 
 
@@ -48,7 +47,7 @@ Elements can be linked through two different ways, Signly Linked List or Doubly 
 
 Each node of the singly linked list is assigned two fields, the first field is the value of the node, which stores the information we need, the second field is the link to the next node.
 
-.. figure:: assets/Singly-linked-list.svg
+.. figure:: assets/data-structure/Singly-linked-list.svg
    :align: center
 
    Singly linked list illustration from `Wikipedia <https://en.wikipedia.org/wiki/Linked_list>`_.
@@ -64,7 +63,7 @@ Stack is good for adding new items and removing the most recent-added item. (`on
 Stack data structure is Last in First out, aka LIFO. There are only two ways to change the stack, which are adding item to the stack and removing the item at the top.
 
 
-.. figure:: assets/Lifo_stack.png
+.. figure:: assets/data-structure/Lifo_stack.png
    :align: center
 
    Stack from Wikipedia
@@ -76,7 +75,7 @@ Queue
 
 Queue is First in First out, aka FIFO. The name Queue explains itself quite well. In a line of queue, the first one in the line would be the first one served and removed from the queue. To add into the queue, we have the put the new guy at the end of the queue.
 
-.. figure:: assets/Data_Queue.svg
+.. figure:: assets/data-structure/Data_Queue.svg
    :align: center
 
    Queue from Wikipedia

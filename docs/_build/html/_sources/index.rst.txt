@@ -19,16 +19,13 @@ Here is an index: `genindex.html <genindex.html>`_ .
     intro.rst
     preliminary/index.rst
     network/index.rst
+    algorithm/index.rst
     database/index.rst
-    python/index.rst
+    languages/index.rst
     scipy/index.rst
-    cpp/index.rst
-    finite-difference/index.rst
-    integral/index.rst
-    finite-element-method/index.rst
-    neutrino-oscillations/index.rst
-    artificial-neural-network/index.rst
+    dynamical-systems/index.rst
     machine-learning/index.rst
+    physics/index.rst
     tools/index.rst
     references/index.rst
     acknowledgement.rst

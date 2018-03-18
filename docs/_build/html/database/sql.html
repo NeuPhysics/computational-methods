@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>SQL &#8212; Computational Methods</title>
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/readable/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/modify.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MongoDB" href="mongodb.html" />
+    <link rel="prev" title="Map Reduce" href="mapreduce.html" />
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({ TeX: { extensions: ["color.js","cancel.js", "AMSmath.js", "AMSsymbols.js"] }});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+MathJax.Hub.Insert(MathJax.InputJax.TeX.Definitions.macros,{
+   cancel: ["Extension","cancel"]
+   });
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+   tex2jax: {
+     skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+   }
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+     var all = MathJax.Hub.getAllJax(), i;
+     for(i=0; i < all.length; i += 1) {
+         all[i].SourceElement().parentNode.className += ' has-jax';
+     }
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+   processEscapes: true
+}
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+"fast-preview": {
+Chunks: {EqnChunk: 10000, EqnChunkFactor: 1, EqnChunkDelay: 0},
+color: "inherit!important",
+updateTime: 30, updateDelay: 6,
+messageStyle: "none",
+disabled: false
+}
+});
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+TeX: {
+   Macros: {
+     overlr: ['\\overset\\leftrightarrow{\#1}',1],
+     overl: ['\\overset\leftarrow{\#1}',1],
+     overr: ['\\overset\rightarrow{\#1}',1],
+     bra: ['\\left\\langle \#1\\right|',1],
+     ket: ['\\left| \#1\\right\\rangle',1],
+     braket: ['\\langle \#1 \\mid \#2 \\rangle',2],
+     avg: ['\\left< \#1 \\right>',1],
+     slashed: ['\\cancel{\#1}',1],
+     bold: ['\\boldsymbol{\#1}',1],
+     sech: ['\\operatorname{sech}{\#1}',1],
+     csch: ['\\operatorname{csch}{\#1}',1],
+     Tr: ['\\operatorname{Tr}{\#1}',1]
+   }
+}
+});
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-66327435-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script> -->
+
+<!-- Toggle Environment Begin -->
+  <script type="text/javascript">
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .admonition-title").show();
+        $(".toggle .admonition-title").click(function() {
+            $(this).parent().children().not(".admonition-title").toggle(400);
+            $(this).parent().children(".admonition-title").toggleClass("open");
+        })
+    });
+    </script>
+<!-- Toggle Environment End -->
+
+<!-- Gitter Sidecar Environment BEGIN -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'NeuPhysics/computational',
+    activationElement: false
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+<!-- Gitter Sidecar Environment END -->
+
+
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-44466929-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+ 
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default ">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Computational Methods</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Chapters <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../preliminary/index.html">Preliminary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../preliminary/numerical-basics.html">Numerical Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../network/index.html">Network</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/http.html">HTTP</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">Basics of Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapreduce.html">Map Reduce</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">SQL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mongodb.html">MongoDB</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../languages/index.html">Programming Languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../languages/python/index.html">Python Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../languages/cpp/index.html">The C++ Language</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../languages/js/index.html">The JavaScript Language</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../scipy/index.html">Using Scipy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../scipy/scipy-basics.html">Scipy Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../machine-learning/index.html">Machine Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../machine-learning/artificial-neural-network/index.html">Artificial Neural Networks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../physics/neutrino-oscillations/index.html">Numerical Neutrino Osillations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tech</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tools/git.html">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tools/gnuplot.html">Gnuplot</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../references/index.html">References</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../references/index.html#c">C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../references/index.html#julia">Julia</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../references/index.html#storage-of-data">Storage of Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../acknowledgement.html">Acknowledgement</a></li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Sections <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">SQL</a><ul>
+<li><a class="reference internal" href="#basics-and-background">Basics and Background</a></li>
+<li><a class="reference internal" href="#id1">SQL</a><ul>
+<li><a class="reference internal" href="#statements-for-manipulation">Statements for Manipulation</a></li>
+<li><a class="reference internal" href="#statements-for-queries">Statements for Queries</a></li>
+<li><a class="reference internal" href="#aggregate">Aggregate</a></li>
+<li><a class="reference internal" href="#multiple-tables">Multiple Tables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references-and-notes">References and Notes</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="mapreduce.html" title="Previous Chapter: Map Reduce"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Map Reduce</span>
+    </a>
+  </li>
+  <li>
+    <a href="mongodb.html" title="Next Chapter: MongoDB"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">MongoDB &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="sql">
+<h1>SQL<a class="headerlink" href="#sql" title="Permalink to this headline">¶</a></h1>
+<div class="note admonition">
+<p class="first admonition-title">Differences between Relational and Non-Relational</p>
+<ol class="last arabic simple">
+<li>Adding a new field to data:
+1. Relational: requires a new column
+2. Non-Relational: just add the field to one single document, thus can be easily decentralized.</li>
+</ol>
+</div>
+<div class="section" id="basics-and-background">
+<h2>Basics and Background<a class="headerlink" href="#basics-and-background" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>SQL: Structured Query Language</li>
+<li>Relational Database:<ol class="arabic">
+<li>usually in tables</li>
+<li>rows are called records</li>
+<li>columns are certain types of data. Data type of rows are specified:
+1. INTEGER
+2. TEXT
+3. DATE
+4. REAL, real numbers
+5. NULL
+6. …</li>
+</ol>
+</li>
+<li>RDBMS: Relational Database Management System, most RDBMS use SQL as the query language. SQLite is one of the RDBMS.
+1. SQLite: open source and minimal
+2. MySQL: powerful and popular, also open source, controlled by Oracle, not really scalable.
+3. PostgreSQL: open source, even slower than MySQL.
+4. OracleDB: not open source
+5. SQL Server: from Microsoft, not open source, and only on windows.</li>
+</ol>
+</div>
+<div class="section" id="id1">
+<h2>SQL<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="warning admonition">
+<p class="first admonition-title">Semicolon</p>
+<p class="last">Semicolon in SQL is a statement terminator. Just use it.</p>
+</div>
+<div class="note admonition">
+<p class="first admonition-title">Capitalization Strategy</p>
+<p>For readablilty</p>
+<ol class="arabic simple">
+<li>Capitalize clauses</li>
+<li>Capitalize table names etc</li>
+</ol>
+<p class="last">On stackoverflow: <a class="reference external" href="https://stackoverflow.com/questions/608196/why-should-i-capitalize-my-sql-keywords">stackoverflow</a></p>
+</div>
+<div class="section" id="statements-for-manipulation">
+<h3>Statements for Manipulation<a class="headerlink" href="#statements-for-manipulation" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Create table</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="p">(</span>
+    <span class="n">column_1</span> <span class="n">data_type</span><span class="p">,</span>
+    <span class="n">column_2</span> <span class="n">data_type</span><span class="p">,</span>
+    <span class="n">column_3</span> <span class="n">data_type</span>
+  <span class="p">);</span>
+</pre></div>
+</div>
+<p>Constraints can be included when creating tables. I am using the example from <a class="reference external" href="https://www.codecademy.com/courses/learn-sql-manipulation/lessons/manipulation/exercises/delete">CodeAcademy</a>.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">awards</span> <span class="p">(</span>
+<span class="c1">--id should be integer, and is the primary key</span>
+   <span class="n">id</span> <span class="nb">INTEGER</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+<span class="c1">--recipient should be text and can not be null</span>
+   <span class="n">recipient</span> <span class="nb">TEXT</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="c1">--default values for a column</span>
+   <span class="n">award_name</span> <span class="nb">TEXT</span> <span class="k">DEFAULT</span> <span class="ss">&quot;Grammy&quot;</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>As mentioned in the basics section, primary keys should be unique to identify the specific row.</p>
+</li>
+<li><p class="first">Insert new row</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">INSERT</span> <span class="k">INTO</span> <span class="k">table_name</span> <span class="p">(</span><span class="n">column_1</span><span class="p">,</span> <span class="n">column_2</span><span class="p">,</span> <span class="n">column_3</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="n">some_value_1</span><span class="p">,</span> <span class="n">some_value_2</span><span class="p">,</span> <span class="n">some_value_3</span><span class="p">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Update some values</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="c1">-- Specify the table</span>
+<span class="k">UPDATE</span> <span class="k">table_name</span>
+<span class="c1">-- choose column to be updated</span>
+<span class="k">SET</span> <span class="n">column_1</span> <span class="o">=</span> <span class="n">some_other_value_1</span>
+<span class="c1">-- specify row location</span>
+<span class="k">WHERE</span> <span class="n">column_2</span> <span class="o">=</span> <span class="n">some_specific_value_to_locate_the_row</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add new columns</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="c1">-- speficy table</span>
+<span class="k">ALTER</span> <span class="k">table_name</span>
+<span class="c1">-- add column and specify data type, here I use TEXT</span>
+<span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">column_4</span> <span class="nb">TEXT</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Delete rows</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">celebs</span>
+<span class="c1">-- I use column_4 as an example</span>
+<span class="c1">-- Delete every row if column_4 has NULL values</span>
+<span class="k">WHERE</span> <span class="n">column_4</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="statements-for-queries">
+<h3>Statements for Queries<a class="headerlink" href="#statements-for-queries" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select from table; select returns <em>result set</em> which is a new table.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="c1">-- Select out everything from table</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+<span class="c1">-- Select out the values of a specific column</span>
+<span class="k">SELECT</span> <span class="n">column_1</span> <span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Slect specific columns</p>
+</li>
+<li><p class="first"><cite>AS</cite> keyword: allows you to select the column and return it as the specified new name of the column; the database is NOT modified.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">column_1</span> <span class="k">AS</span> <span class="s1">&#39;A NEW NAME&#39;</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Select and show only the distinct values of the column</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">column_1</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>WHERE</cite> key: using operators such as <cite>=, !=, &gt;, &lt;, &gt;=, &lt;=</cite> to filter results</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span>
+<span class="k">WHERE</span> <span class="n">column_1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>LIKE</cite> key: patern specified like <cite>AA_B</cite> where <cite>_</cite> is for a single character.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">table_name</span>
+<span class="k">WHERE</span> <span class="n">column_1</span> <span class="k">LIKE</span> <span class="o">`</span><span class="n">AA_B</span><span class="o">`</span>
+</pre></div>
+</div>
+<p>Wildcards: <cite>_</cite>, <cite>%</cite> for 0 or more characters.</p>
+</li>
+<li><p class="first"><cite>BETWEEN</cite>, <cite>AND</cite>, <cite>OR</cite>:</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">movies</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">BETWEEN</span> <span class="s1">&#39;D%&#39;</span> <span class="k">AND</span> <span class="s1">&#39;G%&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>SORT BY</cite>: Can be either <cite>DESC</cite> or <cite>ASC</cite> and goes after where</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">movies</span>
+<span class="k">WHERE</span> <span class="k">year</span> <span class="o">&gt;</span> <span class="mi">2014</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">name</span> <span class="k">DESC</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>LIMIT</cite></p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">movies</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">imdb_rating</span> <span class="k">DESC</span>
+<span class="k">LIMIT</span> <span class="mi">3</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>CASE</cite>:</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span>
+ <span class="k">CASE</span>
+   <span class="k">WHEN</span> <span class="n">genre</span> <span class="o">=</span> <span class="s1">&#39;romance&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;fun&#39;</span>
+   <span class="k">WHEN</span> <span class="n">genre</span> <span class="o">=</span> <span class="s1">&#39;comedy&#39;</span> <span class="k">THEN</span> <span class="s1">&#39;fun&#39;</span>
+   <span class="k">ELSE</span> <span class="s1">&#39;serious&#39;</span>
+ <span class="k">END</span>
+<span class="k">FROM</span> <span class="n">movies</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="aggregate">
+<h3>Aggregate<a class="headerlink" href="#aggregate" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first"><cite>COUNT</cite>:</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">tabe_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>SUM</cite>:</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">column_1</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>MAX</cite> and <cite>MIN</cite>:</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">MAX</span><span class="p">(</span><span class="n">column_1</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>AVG</cite>: average</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">AVG</span><span class="p">(</span><span class="n">column_1</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="k">table_name</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>ROUND</cite>: round to specified decimals</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="c1">--round the price to integers</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">price</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span><span class="p">;</span>
+
+<span class="c1">--round the price to integers</span>
+<span class="c1">--even with other keys as arguments</span>
+<span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">price</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>GROUP BY</cite>: group by column values</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">price</span><span class="p">,</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span>
+<span class="k">WHERE</span> <span class="n">downloads</span> <span class="o">&gt;</span> <span class="mi">20000</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">price</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">category</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">downloads</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">category</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>References can be used in <cite>GROUP BY</cite></p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">category</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">downloads</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">--1 here is identical to category</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>HAVING</cite>: The problem with <cite>WHERE</cite> is that it goes before <cite>GROUP BY</cite>. What if we need to filter the groups?</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="n">price</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">downloads</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">fake_apps</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">price</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">price</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">9</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="multiple-tables">
+<h3>Multiple Tables<a class="headerlink" href="#multiple-tables" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>normalization</strong> is explained in <a class="reference internal" href="basics.html#db-normalization"><span class="std std-ref">Normalization</span></a>.</p>
+<ol class="arabic">
+<li><p class="first"><cite>JOIN</cite>: Join tables with specified column</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">orders</span>
+<span class="k">JOIN</span> <span class="n">subscriptions</span>
+<span class="k">ON</span> <span class="n">orders</span><span class="p">.</span><span class="n">subscription_id</span> <span class="o">=</span> <span class="n">subscriptions</span><span class="p">.</span><span class="n">subscription_id</span>
+<span class="k">WHERE</span> <span class="n">description</span> <span class="o">=</span> <span class="s1">&#39;Fashion Magazine&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Inner Join: only join the rows that have common values on the specified join columns.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">newspaper</span><span class="p">;</span>
+<span class="c1">--Output 60</span>
+
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">online</span><span class="p">;</span>
+<span class="c1">--Output 65</span>
+
+<span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">newspaper</span>
+<span class="k">JOIN</span> <span class="n">online</span>
+<span class="k">ON</span> <span class="n">online</span><span class="p">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">newspaper</span><span class="p">.</span><span class="n">id</span><span class="p">;</span>
+<span class="c1">--Output 50 &lt;= 60 or 65</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Left Join: simply plug all the right table onto left tables, where the values of the specified column match. The number of rows will be the number of rows for the left table.</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">newspaper</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">online</span>
+<span class="k">ON</span> <span class="n">newspaper</span><span class="p">.</span><span class="n">id</span><span class="o">=</span><span class="n">online</span><span class="p">.</span><span class="n">id</span>
+<span class="k">WHERE</span> <span class="n">online</span><span class="p">.</span><span class="n">id</span> <span class="k">IS</span> <span class="k">NULL</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Cross join: combine all the information</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="k">month</span><span class="p">,</span>
+<span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">as</span> <span class="n">subscribers</span>
+<span class="k">FROM</span> <span class="n">months</span>
+<span class="k">CROSS</span> <span class="k">JOIN</span> <span class="n">newspaper</span>
+<span class="k">WHERE</span> <span class="n">months</span><span class="p">.</span><span class="k">month</span> <span class="o">&gt;</span> <span class="n">newspaper</span><span class="p">.</span><span class="n">start_month</span> <span class="k">AND</span> <span class="n">months</span><span class="p">.</span><span class="k">month</span> <span class="o">&lt;</span> <span class="n">newspaper</span><span class="p">.</span><span class="n">end_month</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">months</span><span class="p">.</span><span class="k">month</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>UNION</cite>: stack tables</p>
+<div class="highlight-SQL"><div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">newspaper</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">online</span><span class="p">;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><cite>WITH</cite>: create a result with alias</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="references-and-notes">
+<h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.codecademy.com/articles/what-is-rdbms-sql">What is a Relational Database Management System (RDBMS)?</a></li>
+<li><a class="reference external" href="https://www.codecademy.com/articles/sql-commands">List of SQL commands</a></li>
+</ol>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+
+
+<div class="container" style="border-top:solid 1px black;margin-top:10px;padding-top:10px;padding-bottom:10px;">
+<div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'neuphysics'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the
+        <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+    </noscript>
+</div>
+
+<hr>
+
+
+<div class="container" style="border-top:solid 1px black;margin-top:10px;padding-top:10px;padding-bottom:10px;">
+    <p class="pull-right">
+
+
+        <a href="#"><span class="label label-info">Back to top</span></a>
+
+    </p>
+    <p>
+        <span>© 2017, Lei Ma </span>|
+        <span>Created with
+        <a href="http://sphinx.pocoo.org/">Sphinx</a> and <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>.
+        </span>|
+        <span><span class="glyphicon glyphicon-cloud" aria-hidden="true"></span>
+        <a href="https://github.com/NeuPhysics/neutrino">On GitHub</a>
+        </span>|
+        <span><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+              <a href="http://physics.openmetric.org">Physics Notebook</a>
+        </span>
+        <span><span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+              <a href="http://statisticalphysics.openmetric.org">Statistical Mechanics Notebook</a>
+        </span>
+        <span>
+           <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            <a href="http://docs.neutrino.xyz">Neutrino Physics Notes</a>
+        </span>
+        <span>
+           <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            <a href="http://intelligence.readthedocs.io">Intelligence</a>
+        </span>
+         |
+        <span><span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+        <a href="/genindex.html">Index</a>
+     </span> |
+       <span><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
+       <a href="../_sources/database/sql.rst.txt"
+      rel="nofollow">Page Source</a>
+      </span>
+
+        <span><script data-gittip-username="emptymalei"
+        data-gittip-widget="button"
+        src="//gttp.co/v1.js"></script></span>
+    </p>
+
+    <hr>
+
+    <script>
+        window.jQuery || document.write('<script src="_static/js/vendor/jquery-1.9.1.min.js"><\/script>')
+    </script>
+
+</div>
+
+ 
+  </body>
+</html>
