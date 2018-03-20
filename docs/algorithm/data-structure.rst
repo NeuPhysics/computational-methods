@@ -21,7 +21,7 @@ Binary Tree
    a. Pre-order traversal: parent->left->right
    b. In-orer traversal: left->parent->right
    c. Post-order traversal: left->right->parent
-   d. Level-order tranversal: top->bottom, by each level from left to right of the whole tree
+   d. Level-order traversal: top->bottom, by each level from left to right of the whole tree
 
 
 
