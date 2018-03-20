@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Artificial Neural Networks &#8212; Computational Methods</title>
+    <title>Differential Equations and Boundary Conditions &#8212; Computational Methods</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/modify.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Artificial Neural Networks Basics" href="ann.html" />
-    <link rel="prev" title="Machine Learning" href="../index.html" />
+    <link rel="next" title="Galerkin Method" href="galerkin-method.html" />
+    <link rel="prev" title="Finite Element Method" href="index.html" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script type="text/x-mathjax-config">
@@ -223,14 +223,14 @@ TeX: {
 <li class="toctree-l2"><a class="reference internal" href="../../scipy/scipy-basics.html">Scipy Basics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../dynamical-systems/index.html">Dynamic Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-difference/index.html">Finite Difference Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/integral/index.html">Numerical Integral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-element-method/index.html">Finite Element Method</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dynamic Systems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../finite-difference/index.html">Finite Difference Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integral/index.html">Numerical Integral</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Finite Element Method</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Machine Learning</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Artificial Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../machine-learning/index.html">Machine Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../machine-learning/artificial-neural-network/index.html">Artificial Neural Networks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a><ul>
@@ -262,7 +262,16 @@ TeX: {
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Artificial Neural Networks</a></li>
+<li><a class="reference internal" href="#">Differential Equations and Boundary Conditions</a><ul>
+<li><a class="reference internal" href="#two-types-of-boundary-conditions">Two Types of Boundary Conditions</a></li>
+<li><a class="reference internal" href="#example-problems">Example Problems</a><ul>
+<li><a class="reference internal" href="#elasticity-problem">Elasticity Problem</a></li>
+<li><a class="reference internal" href="#heat-transfer">Heat Transfer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#strong-form-and-weak-form-of-pde">Strong Form and Weak Form of PDE</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -272,11 +281,11 @@ TeX: {
               
                 
   <li>
-    <a href="../index.html" title="Previous Chapter: Machine Learning"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Machine Learning</span>
+    <a href="index.html" title="Previous Chapter: Finite Element Method"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Finite Element Method</span>
     </a>
   </li>
   <li>
-    <a href="ann.html" title="Next Chapter: Artificial Neural Networks Basics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Artificial Ne... &raquo;</span>
+    <a href="galerkin-method.html" title="Next Chapter: Galerkin Method"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Galerkin Method &raquo;</span>
     </a>
   </li>
               
@@ -304,22 +313,38 @@ TeX: {
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="artificial-neural-networks">
-<h1>Artificial Neural Networks<a class="headerlink" href="#artificial-neural-networks" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ann.html">Artificial Neural Networks Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#universal-approximators">Universal Approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#activation-functions">Activation Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#solving-differential-equations">Solving Differential Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#overfitting">Overfitting</a></li>
+  <div class="section" id="differential-equations-and-boundary-conditions">
+<h1>Differential Equations and Boundary Conditions<a class="headerlink" href="#differential-equations-and-boundary-conditions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="two-types-of-boundary-conditions">
+<h2>Two Types of Boundary Conditions<a class="headerlink" href="#two-types-of-boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>As an example, we have a partial differential equation</p>
+<div class="math">
+\[\frac{d^2u}{dx^2} + f = 0,\]</div>
+<p>which describes a 1D problem.</p>
+<ul class="simple">
+<li>Dirichlet boundary condition: specify values for <span class="math">\(u\)</span>, such as <span class="math">\(u(0)=u_0\)</span> and <span class="math">\(u(L)=u_L\)</span>;</li>
+<li>Neumann boundary condition: specifiy values for <span class="math">\(u_{,x}\)</span>.</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="neural-net-and-fem.html">Neural Network and Finite Element Method</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="neural-net-and-fem.html#references-and-notes">References and Notes</a></li>
-</ul>
-</li>
-</ul>
+<p>If we have only Neumann boundary condition, the solution is not unique. The example for it is tossing a bar, which can have both Neumann BC at both ends but it is moving.</p>
+</div>
+<div class="section" id="example-problems">
+<h2>Example Problems<a class="headerlink" href="#example-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="elasticity-problem">
+<h3>Elasticity Problem<a class="headerlink" href="#elasticity-problem" title="Permalink to this headline">¶</a></h3>
+<p>We consider the displacement <span class="math">\(u(x)\)</span> at each space coordinate <span class="math">\(x\)</span> of a elastic bar under some external force. The strain is proportional to <span class="math">\(u_{,x}\)</span>. The equation would be</p>
+<div class="math">
+\[-\frac{d\sigma}{dx} = f.\]</div>
+</div>
+<div class="section" id="heat-transfer">
+<h3>Heat Transfer<a class="headerlink" href="#heat-transfer" title="Permalink to this headline">¶</a></h3>
+<p>Define temperature on a bar at each point <span class="math">\(u(x)\)</span>. Heat transfer is proportional to the head gradient, <span class="math">\(j= - \kappa u_{,x}\)</span>. The quation would be</p>
+<div class="math">
+\[- \frac{dj}{dx} = f.\]</div>
+</div>
+</div>
+<div class="section" id="strong-form-and-weak-form-of-pde">
+<h2>Strong Form and Weak Form of PDE<a class="headerlink" href="#strong-form-and-weak-form-of-pde" title="Permalink to this headline">¶</a></h2>
+<p>Strong form of differential equations is basically the original form we write down. Strong form requires each term to be well defined at each point. However, we can derive a weak form that require each part to be well defined through the whole domain only, which is a relaxed requirement.</p>
 </div>
 </div>
 
@@ -387,7 +412,7 @@ TeX: {
         <a href="/genindex.html">Index</a>
      </span> |
        <span><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
-       <a href="../../_sources/machine-learning/artificial-neural-network/index.rst.txt"
+       <a href="../../_sources/dynamical-systems/finite-element-method/pde-and-boundary-conditions.rst.txt"
       rel="nofollow">Page Source</a>
       </span>
 

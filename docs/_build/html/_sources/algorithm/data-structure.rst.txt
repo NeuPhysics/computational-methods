@@ -18,11 +18,10 @@ Binary Tree
 0. Tree; Binary tree
 1. Traverse a tree:
 
-   a. Pre-order traversal
-   b. In-orer traversal
-   c. Post-order traversal
-
-2.
+   a. Pre-order traversal: parent->left->right
+   b. In-orer traversal: left->parent->right
+   c. Post-order traversal: left->right->parent
+   d. Level-order tranversal: top->bottom, by each level from left to right of the whole tree
 
 
 

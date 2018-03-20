@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Artificial Neural Networks &#8212; Computational Methods</title>
+    <title>Galerkin Method &#8212; Computational Methods</title>
     <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/modify.css" type="text/css" />
@@ -30,8 +30,8 @@
     <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Artificial Neural Networks Basics" href="ann.html" />
-    <link rel="prev" title="Machine Learning" href="../index.html" />
+    <link rel="next" title="Collocation Method" href="collocation-method.html" />
+    <link rel="prev" title="Differential Equations and Boundary Conditions" href="pde-and-boundary-conditions.html" />
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <script type="text/x-mathjax-config">
@@ -223,14 +223,14 @@ TeX: {
 <li class="toctree-l2"><a class="reference internal" href="../../scipy/scipy-basics.html">Scipy Basics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../dynamical-systems/index.html">Dynamic Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-difference/index.html">Finite Difference Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/integral/index.html">Numerical Integral</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-element-method/index.html">Finite Element Method</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Dynamic Systems</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../finite-difference/index.html">Finite Difference Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integral/index.html">Numerical Integral</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Finite Element Method</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Machine Learning</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Artificial Neural Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../machine-learning/index.html">Machine Learning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../machine-learning/artificial-neural-network/index.html">Artificial Neural Networks</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../physics/index.html">Physics</a><ul>
@@ -262,7 +262,10 @@ TeX: {
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Artificial Neural Networks</a></li>
+<li><a class="reference internal" href="#">Galerkin Method</a><ul>
+<li><a class="reference internal" href="#references-and-notes">References and Notes</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -272,11 +275,11 @@ TeX: {
               
                 
   <li>
-    <a href="../index.html" title="Previous Chapter: Machine Learning"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Machine Learning</span>
+    <a href="pde-and-boundary-conditions.html" title="Previous Chapter: Differential Equations and Boundary Conditions"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Differential ...</span>
     </a>
   </li>
   <li>
-    <a href="ann.html" title="Next Chapter: Artificial Neural Networks Basics"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Artificial Ne... &raquo;</span>
+    <a href="collocation-method.html" title="Next Chapter: Collocation Method"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Collocation Method &raquo;</span>
     </a>
   </li>
               
@@ -304,22 +307,40 @@ TeX: {
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="artificial-neural-networks">
-<h1>Artificial Neural Networks<a class="headerlink" href="#artificial-neural-networks" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="ann.html">Artificial Neural Networks Basics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#universal-approximators">Universal Approximators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#activation-functions">Activation Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#solving-differential-equations">Solving Differential Equations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ann.html#overfitting">Overfitting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="neural-net-and-fem.html">Neural Network and Finite Element Method</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="neural-net-and-fem.html#references-and-notes">References and Notes</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="galerkin-method">
+<h1>Galerkin Method<a class="headerlink" href="#galerkin-method" title="Permalink to this headline">¶</a></h1>
+<p>Suppose we need to find the solution to equation</p>
+<div class="math">
+\[\mathcal L_{x} \psi(x) = f(x).\]</div>
+<p>The key is that the solution can be approximated by</p>
+<div class="math">
+\[\psi(x) = \sum_i u_i \phi_i(x),\]</div>
+<p>where <span class="math">\(\phi_i(x)\)</span> are the basis functions.</p>
+<p><strong>The purpose is to find the the coefficients</strong> <span class="math">\(u_i\)</span>. Galerkin method has three steps.</p>
+<ol class="arabic simple">
+<li>discretize the space <span class="math">\(x\)</span> and function space: triangulation,</li>
+<li>discretize the function using weak form: assembly,</li>
+<li>error estimation.</li>
+</ol>
+<p>Triangulation is basically setting up the basis function in a discretized space <span class="math">\(x\)</span>. One of the choice is the hat function.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/plot-using-linear-combinations.png" src="../../_images/plot-using-linear-combinations.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Triangulation from <a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">comsol multiphysics</a>.</span></p>
+</div>
+<p>At each point <span class="math">\(x\)</span>, there is a hat function responsible for the approximation within <span class="math">\([x-\Delta x, x+\Delta x]\)</span>.</p>
+<p>Those hat functions forms the basis for the approximated solution</p>
+<div class="math">
+\[\psi = \sum_i u_i \phi_i.\]</div>
+<p>With this approximation, it requires the <em>test function</em> <span class="math">\(v\)</span> to write down the weak form. Basically we multiply <span class="math">\(v\)</span> on both sides of the equation then integrate by step. Then the differential equation can be rewrite into matrix form with basis <span class="math">\(\phi_i\)</span>,</p>
+<div class="math">
+\[\mathbf K \mathbf U = \mathbf L.\]</div>
+<p>We solve the coefficients <span class="math">\(\mathbf U\)</span> from the matrix equation.</p>
+<div class="section" id="references-and-notes">
+<h2>References and Notes<a class="headerlink" href="#references-and-notes" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Freitag, K. J. (2007). Neural networks and differential equations.</li>
+<li><a class="reference external" href="https://www.comsol.com/multiphysics/finite-element-method">COMSOL Multiphysics has a nice article</a>.</li>
+</ol>
 </div>
 </div>
 
@@ -387,7 +408,7 @@ TeX: {
         <a href="/genindex.html">Index</a>
      </span> |
        <span><span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
-       <a href="../../_sources/machine-learning/artificial-neural-network/index.rst.txt"
+       <a href="../../_sources/dynamical-systems/finite-element-method/galerkin-method.rst.txt"
       rel="nofollow">Page Source</a>
       </span>
 
