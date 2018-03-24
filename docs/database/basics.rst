@@ -111,15 +111,23 @@ Database Key
 Normalization
 -------------------------
 
+.. admonition:: Dependency
+   :class: note
+
+   Dependency means a column that determines others.
+
+   Partial dependency means that we have some column that depends on only some of the columns but has nothing to do with some other columns. In this case we can see some kind of redundency. Hence in 2NF we remove partial dependency.
+
+   Transitive dependency is that if x determines y, y determines z, then x determines z, which is the transitive dependency.
 
 1. NF: Normal Form,e.g., 1NF Rules, 2NF Rules, 3NF Rules. Refer to `this article <https://www.guru99.com/database-normalization.html>`_. BCNF (Boyce–Codd normal form) please refer to wiki. 4NF is also explained well in `wiki <https://en.wikipedia.org/wiki/Fourth_normal_form>`_.
-2. Taken from HackerRank comments: https://www.hackerrank.com/challenges/database-normalization-1-1nf/forum
+2. `studytonight <https://www.studytonight.com/dbms/database-normalization.php>`_
 
    .. code-block:: text
 
-      1NF = Single value on each field
+      1NF = can not be broken down into more elementary tables : Single value on each field; no repeating groups (for example table with multiple columns of products which are in principle the same is NOT 1NF)
 
-      2NF = 1NF + No non-prime attribute is dependent on the proper subset of any candidate key of table.
+      2NF = 1NF + no partial dependency: non-key columns depends on primary keys.
 
       3NF = 2NF + Transitive functional dependency of non-prime attribute on any super key should be removed.
 
