@@ -201,6 +201,11 @@ TeX: {
 <li class="toctree-l2"><a class="reference internal" href="../../network/http.html">HTTP</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../../algorithm/index.html">Algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithm/basics.html">Basics of Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../algorithm/data-structure.html">Data Structure</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../database/index.html">Database</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../database/basics.html">Basics of Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../database/mapreduce.html">Map Reduce</a></li>
@@ -216,6 +221,12 @@ TeX: {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../scipy/index.html">Using Scipy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../scipy/scipy-basics.html">Scipy Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../dynamical-systems/index.html">Dynamic Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-difference/index.html">Finite Difference Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/integral/index.html">Numerical Integral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../dynamical-systems/finite-element-method/index.html">Finite Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../machine-learning/index.html">Machine Learning</a><ul>
@@ -580,6 +591,27 @@ TeX: {
 <span class="c1">//this is a pure virtual function, which must be overrided;</span>
 </pre></div>
 </div>
+</div>
+<div class="warning admonition">
+<p class="first admonition-title">Arrow</p>
+<p>Arrow: -&gt;
+is a combination of dereferencing and accessing member functions.</p>
+<p>Suppose we have a class called AClass. We are accessing its member  AValue. There are two different ways.</p>
+<ol class="last arabic">
+<li><p class="first">Using pointer</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">AClass</span> <span class="o">*</span><span class="n">pointerAClass</span><span class="p">;</span>
+<span class="n">pointerAClass</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AClass</span><span class="p">;</span>
+<span class="n">pointerAClass</span><span class="o">-&gt;</span><span class="n">AValue</span><span class="p">...</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Using arrow</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">AClass</span> <span class="n">theAClass</span><span class="p">;</span>
+<span class="n">theAClass</span><span class="p">.</span><span class="n">AValue</span><span class="p">...</span>
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 </div>
 <div class="section" id="dynamic-memory">

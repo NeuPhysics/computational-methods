@@ -201,6 +201,11 @@ TeX: {
 <li class="toctree-l2"><a class="reference internal" href="../network/http.html">HTTP</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../algorithm/index.html">Algorithm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../algorithm/basics.html">Basics of Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../algorithm/data-structure.html">Data Structure</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Database</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Basics of Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mapreduce.html">Map Reduce</a></li>
@@ -216,6 +221,12 @@ TeX: {
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../scipy/index.html">Using Scipy</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../scipy/scipy-basics.html">Scipy Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamical-systems/index.html">Dynamic Systems</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dynamical-systems/finite-difference/index.html">Finite Difference Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dynamical-systems/integral/index.html">Numerical Integral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dynamical-systems/finite-element-method/index.html">Finite Element Method</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../machine-learning/index.html">Machine Learning</a><ul>
@@ -399,13 +410,19 @@ n1*n2*n3+n1*n2+n2*n3+n1*n3+n1+n2+n3+1
 </div>
 <div class="section" id="normalization">
 <span id="db-normalization"></span><h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
+<div class="note admonition">
+<p class="first admonition-title">Dependency</p>
+<p>Dependency means a column that determines others.</p>
+<p>Partial dependency means that we have some column that depends on only some of the columns but has nothing to do with some other columns. In this case we can see some kind of redundency. Hence in 2NF we remove partial dependency.</p>
+<p class="last">Transitive dependency is that if x determines y, y determines z, then x determines z, which is the transitive dependency.</p>
+</div>
 <ol class="arabic">
 <li><p class="first">NF: Normal Form,e.g., 1NF Rules, 2NF Rules, 3NF Rules. Refer to <a class="reference external" href="https://www.guru99.com/database-normalization.html">this article</a>. BCNF (Boyce–Codd normal form) please refer to wiki. 4NF is also explained well in <a class="reference external" href="https://en.wikipedia.org/wiki/Fourth_normal_form">wiki</a>.</p>
 </li>
-<li><p class="first">Taken from HackerRank comments: <a class="reference external" href="https://www.hackerrank.com/challenges/database-normalization-1-1nf/forum">https://www.hackerrank.com/challenges/database-normalization-1-1nf/forum</a></p>
-<div class="highlight-text"><div class="highlight"><pre><span></span>1NF = Single value on each field
+<li><p class="first"><a class="reference external" href="https://www.studytonight.com/dbms/database-normalization.php">studytonight</a></p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>1NF = can not be broken down into more elementary tables : Single value on each field; no repeating groups (for example table with multiple columns of products which are in principle the same is NOT 1NF)
 
-2NF = 1NF + No non-prime attribute is dependent on the proper subset of any candidate key of table.
+2NF = 1NF + no partial dependency: non-key columns depends on primary keys.
 
 3NF = 2NF + Transitive functional dependency of non-prime attribute on any super key should be removed.
 

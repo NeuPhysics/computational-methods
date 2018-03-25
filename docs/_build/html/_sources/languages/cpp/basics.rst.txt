@@ -357,6 +357,33 @@ Clarifications
       //this is a pure virtual function, which must be overrided;
 
 
+.. admonition:: Arrow
+   :class: warning
+
+   Arrow: ->
+   is a combination of dereferencing and accessing member functions.
+
+   Suppose we have a class called AClass. We are accessing its member  AValue. There are two different ways.
+
+   1. Using pointer
+
+      .. code-block:: cpp
+
+         AClass *pointerAClass;
+         pointerAClass = new AClass;
+         pointerAClass->AValue...
+
+   2. Using arrow
+
+      .. code-block:: cpp
+
+         AClass theAClass;
+         theAClass.AValue...
+
+
+
+
+
 Dynamic Memory
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 

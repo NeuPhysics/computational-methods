@@ -113,7 +113,20 @@ Zen Code
 
 1. https://www.python.org/doc/essays/list2str/
 
-2. Try `filter()`, `map()`, `reduce()`.
+
+
+Filter, Map, and List Comprehension
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`filter()`, `map()`, `reduce()`, and list comprehension: `link to code <https://repl.it/@emptymalei/Python-filter-map-reduce>`_
+
+.. html::
+   <iframe height="400px" width="100%" src="https://repl.it/@emptymalei/Python-filter-map-reduce?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+
+
+
+
 
 
 Super function
