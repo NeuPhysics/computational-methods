@@ -24,6 +24,7 @@ Here is an index: `genindex.html <genindex.html>`_ .
     languages/index.rst
     scipy/index.rst
     dynamical-systems/index.rst
+    time-series.index.rst
     machine-learning/index.rst
     physics/index.rst
     tools/index.rst
