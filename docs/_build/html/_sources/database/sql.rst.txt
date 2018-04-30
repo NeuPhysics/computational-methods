@@ -133,9 +133,10 @@ Statements for Queries
       -- Select out the values of a specific column
       SELECT column_1 FROM table_name;
 
-2. Slect specific columns
+2. Select specific columns
 
    .. code-block:: SQL
+
       SELECT column_1, column_2
       FROM table_name;
 
