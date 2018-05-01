@@ -11,3 +11,4 @@ Some useful technologies or techniques for computations.
 
    git.rst
    gnuplot.rst
+   big-data.rst
