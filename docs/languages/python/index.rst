@@ -8,3 +8,4 @@ Python Basics
 
     python-basics.rst
     performance.rst
+    multiprocessing.rst
