@@ -13,3 +13,4 @@ Some useful technologies or techniques for computations.
    gnuplot.rst
    big-data.rst
    visualization.rst
+   data-warehouse.rst
