@@ -8,3 +8,4 @@ Database
    mapreduce.rst
    sql.rst
    mongodb.rst
+   warehousing.rst

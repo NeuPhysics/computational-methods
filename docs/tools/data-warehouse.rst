@@ -1,6 +1,8 @@
 Data Warehouse
 ====================
 
+
+
 .. admonition:: Case
    :class: note
 
@@ -46,6 +48,18 @@ For Data
 2. Athena
 3. Redshift
 
+Pipeline
+---------------------------
+
+1. `Apache Airflow <https://airflow.apache.org/>`_: Pipeline management
+2. `mosql <https://github.com/stripe/mosql>`_: MongoDB to PostgreSQL
+
+
+Data Visualization
+--------------------------
+
+
+1. `Apache incubator-superset <https://github.com/apache/incubator-superset>`_ (`Apache 2.0`): business intelligence web application.
 
 
 Challenges
