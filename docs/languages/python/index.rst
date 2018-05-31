@@ -10,3 +10,4 @@ Python Basics
     input.rst
     performance.rst
     multiprocessing.rst
+    decorators.rst
